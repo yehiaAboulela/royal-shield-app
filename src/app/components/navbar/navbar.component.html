@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-black">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="./imgs/logo.png" alt="" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/home"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/resellers"
+            >Resellers</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/contact-us"
+            >Contact Us</a
+          >
+        </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active"
+            >Products</a
+          >
+        </li> -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="dropdownId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Products</a
+          >
+          <div
+            class="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="dropdownId"
+          >
+            <a class="dropdown-item" routerLink="/nano-ceramic">Nano Ceramic</a>
+            <a class="dropdown-item" routerLink="/graphine">Nano graphine</a>
+            <a class="dropdown-item" href="#">Paint Protection Film</a>
+            <a class="dropdown-item" href="#">Car Care</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/about"
+            >About</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

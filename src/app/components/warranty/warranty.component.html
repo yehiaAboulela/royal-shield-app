@@ -1,0 +1,118 @@
+<section class="py-5">
+  <img src="./imgs/logo-transparent.png" alt="logo" class="logo-top-left" />
+  <img src="./imgs/logo-transparent.png" alt="logo" class="logo-bottom-right" />
+  <div class="container">
+    <h1 class="text-center mb-5">Warranty Activation</h1>
+    <hr />
+
+    <form
+      class="warranty-form my-5"
+      [formGroup]="warrantyForm"
+      (ngSubmit)="activateWarranty()"
+    >
+      <div class="input-parent">
+        <!-- <label for="name">Name:</label> -->
+        <input
+          type="text"
+          id="name"
+          placeholder="Your name here"
+          formControlName="name"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="phone">Phone Number:</label> -->
+        <input
+          type="tel"
+          id="phone"
+          placeholder="(555) 123-4567"
+          formControlName="phoneNumber"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="birthdate">Birth Date</label> -->
+        <p-calendar
+          type="date"
+          id="birthdate"
+          placeholder="birthdate"
+          formControlName="birthdate"
+          styleClass="calender"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="address">Address</label> -->
+        <input
+          type="text"
+          id="address"
+          placeholder="1234 Elm Street Apt 567 Springfield, IL 62704 USA"
+          formControlName="address"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="brand">Brand</label> -->
+        <input
+          type="text"
+          id="brand"
+          placeholder="bmw"
+          formControlName="brand"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="model">Model</label> -->
+        <input
+          type="text"
+          id="model"
+          placeholder="2015"
+          formControlName="model"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="color">Color</label> -->
+        <input
+          type="text"
+          id="color"
+          placeholder="red"
+          formControlName="color"
+        />
+      </div>
+      <div class="input-parent">
+        <!-- <label for="email">Email:</label> -->
+        <input
+          type="email"
+          id="email"
+          placeholder="example@gmail.com"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="input-parent">
+        <!-- <label for="serialNumber">Serial Number:</label> -->
+        <input
+          type="text"
+          id="serialNumber"
+          placeholder="Serial Number"
+          formControlName="serialNumber"
+        />
+      </div>
+      <div>
+        <button class="btn-form" type="submit">Submit</button>
+      </div>
+    </form>
+    <hr />
+  </div>
+</section>
+
+<div
+  class="ownedByTab"
+  [ngClass]="{ active: ownedByTab }"
+  (click)="ownedByTab = false"
+>
+  <div class="my-card">
+    <h3>Sorry this serial number owned by mr: {{ ownedBy.name }}</h3>
+    <h4>His phone number is ( ******** {{ ownedBy.phoneNumber }} )</h4>
+  </div>
+</div>
+
+<div class="success" [ngClass]="{ active: success }">
+  <h1>Congratulations</h1>
+  <app-confetti [active]="success"></app-confetti>
+</div>

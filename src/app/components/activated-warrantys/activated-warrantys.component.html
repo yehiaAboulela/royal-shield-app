@@ -1,0 +1,48 @@
+<section class="py-5 my-5">
+  <div class="container">
+    <table class="table table-striped table-bordered table-hover mt-5">
+      <thead>
+        <tr>
+          <th scope="col">Owner</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Serial</th>
+          <th scope="col">Address</th>
+          <th scope="col">Birthdate</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+          <th scope="col">Color</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (noWarranty) {
+        <td colspan="10">
+          <h2 class="text-center">There is no activated warrantys</h2>
+        </td>
+        } @else if (!noWarranty) { @for (ActivatedWarranty of
+        ActivatedWarrantys; track $index) {
+        <tr>
+          <td>{{ ActivatedWarranty.name }}</td>
+          <td>{{ ActivatedWarranty.phoneNumber }}</td>
+          <td>{{ ActivatedWarranty.serialNumber }}</td>
+          <td>{{ ActivatedWarranty.address }}</td>
+          <td>{{ ActivatedWarranty.birthdate.slice(0, 10) }}</td>
+          <td>{{ ActivatedWarranty.createdAt.slice(0, 10) }}</td>
+          <td>{{ ActivatedWarranty.brand }}</td>
+          <td>{{ ActivatedWarranty.model }}</td>
+          <td>{{ ActivatedWarranty.color }}</td>
+          <td>
+            <button
+              class="btn btn-danger"
+              (click)="deleteSerial(ActivatedWarranty.serialNumber)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        } }
+      </tbody>
+    </table>
+  </div>
+</section>

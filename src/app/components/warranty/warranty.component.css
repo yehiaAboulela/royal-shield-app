@@ -1,0 +1,149 @@
+section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.warranty-form {
+  max-width: 500px;
+  margin-inline: auto;
+}
+.warranty-form label {
+  margin-bottom: 5px;
+}
+:host ::ng-deep .calender {
+  width: 100%;
+}
+
+.warranty-form input,
+:host ::ng-deep input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 3px;
+  border: 1px solid rgb(119, 119, 188);
+  background-color: #eeeeee46;
+  transition: 0.3s;
+}
+
+.warranty-form input:hover,
+:host ::ng-deep input:hover {
+  border-color: transparent;
+  background-color: #cfcfcf5d;
+}
+.warranty-form input:focus,
+:host ::ng-deep input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(106, 106, 166) !important;
+}
+
+.btn-form {
+  width: 100%;
+  padding: 14px;
+  border-radius: 3px;
+  border: 1px solid rgb(119, 119, 188);
+  background-color: #eeeeee46;
+  transition: 0.3s;
+}
+.btn-form:hover {
+  border-color: transparent;
+  background-color: #cfcfcf5d;
+}
+/* :host ::ng-deep .p-float-label input:focus ~ label.active {
+  top: -0.75rem;
+  font-size: 12px;
+} */
+
+.input-parent {
+  margin-bottom: 33px;
+}
+
+.ownedByTab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.my-card {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  transform: translateY(-100%);
+  transition: 0.5s;
+}
+.my-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.my-card h3 span {
+  font-weight: 600;
+}
+.my-card h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.ownedByTab.active {
+  opacity: 1;
+  visibility: visible;
+}
+.ownedByTab.active .my-card {
+  transform: translateY(0);
+}
+
+.success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(65, 155, 65);
+  border: 3px solid white;
+  color: white;
+  animation: success 1s ease-in-out infinite alternate;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+@keyframes success {
+  50% {
+    background-color: rgb(57, 138, 57);
+  }
+}
+.success.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.logo-top-left {
+  position: absolute;
+  top: -50px;
+  left: -250px;
+  width: 50%;
+  z-index: -1;
+  transform: rotate(-20deg);
+}
+.logo-bottom-right {
+  position: absolute;
+  bottom: -250px;
+  right: -150px;
+  width: 50%;
+  z-index: -1;
+  transform: rotate(-20deg);
+}
+
+@media screen and (max-width: 850px) {
+  .logo-top-left,
+  .logo-bottom-right {
+    width: 500px;
+  }
+}

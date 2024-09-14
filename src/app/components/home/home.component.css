@@ -1,0 +1,151 @@
+.home-header {
+  height: calc(100vh - 112.88px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.header-vid {
+  position: relative;
+}
+.header-vid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.552);
+  /* z-index: 1; */
+}
+
+.header-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px 5px 0 0 !important;
+  padding: 10px 30px;
+  background-color: #c0971c;
+}
+.header-btn:hover {
+  color: black;
+  background-color: #b08a18;
+}
+
+.intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.my-card {
+  height: 500px;
+  border: 2px solid white;
+  background-color: black;
+  position: relative;
+  background-position: center;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  padding: 20px;
+  cursor: pointer;
+  transition: 5s linear;
+}
+.my-card:hover {
+  background-size: 140%;
+}
+.my-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: 1s;
+  z-index: 9;
+}
+.my-card:hover::after {
+  background-color: rgba(0, 0, 0, 0.388);
+}
+/* .cards-parent :nth-child(:first) {
+
+} */
+.card-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  padding: 20px;
+  z-index: 99;
+}
+.intro-logo {
+  width: 300px;
+}
+.my-carousel-slide-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  margin: 0 10px;
+  padding: 10px;
+  height: 350px;
+}
+.testimonials {
+  padding: 20px;
+  border: 2px solid white;
+  /* border-radius: 20px; */
+  transition: 0.3s;
+}
+.testimonials:hover {
+  background-color: white;
+  color: black;
+}
+.testimonials:hover .qutation-mark {
+  fill: rgba(106, 106, 176, 0.135);
+}
+.testimonials .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.testimonials .footer h6 {
+  margin-bottom: 0;
+}
+.testimonials .footer img {
+  width: 50px;
+  border-radius: 50%;
+}
+.qutation-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  fill: #eeeeee2a;
+}
+.header-intro {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  margin-inline: auto;
+}
+@media screen and (max-width: 752px) {
+  .my-card {
+    background-size: cover;
+    height: 400px;
+  }
+  .my-card:hover {
+    background-size: cover;
+  }
+  .card-text {
+    width: 100%;
+  }
+  .intro-logo {
+    width: 200px;
+  }
+  .intro {
+    width: 100%;
+  }
+}

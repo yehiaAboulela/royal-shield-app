@@ -1,0 +1,265 @@
+<main class="overflow-hidden">
+  <section>
+    <header class="home-header">
+      <div class="header-vid w-100">
+        <video
+          src="./videos/header_vid.mp4"
+          autoplay
+          loop
+          class="w-100"
+        ></video>
+      </div>
+      <div class="intro">
+        <div class="container"></div>
+        <div class="text-center header-intro">
+          <!-- <img src="./imgs/logo.png" alt="logo" class="intro-logo" /> -->
+          <h1 class="fw-normal fs-lg">Royal Sheild</h1>
+          <p class="text-light fs-20">
+            Is a premium brand specializing in advanced ceramic coatings for
+            automotive and other surfaces. Their products are designed to
+            provide superior protection and enhance the appearance of vehicles
+          </p>
+        </div>
+      </div>
+      <a routerLink="/contact-us" class="btn header-btn">Request an offer</a>
+    </header>
+  </section>
+
+  <section class="py-5 my-5">
+    <div class="container-fluid">
+      <div class="row g-3">
+        <div class="col-md-6 cards-parent">
+          <div
+            class="my-card"
+            style="background-image: url(./imgs/pexels-albinberlin-919073.jpg)"
+          >
+            <div class="card-text">
+              <h2>Vision</h2>
+              <p>
+                To be the global leader in advanced nano ceramic technology,
+                delivering unparalleled protection and enhancement for vehicles
+                and surfaces. We strive to set new standards in durability,
+                aesthetic excellence, and environmental sustainability,
+                empowering our customers with cutting-edge solutions that
+                preserve and elevate the value of their investment
+              </p>
+              <a routerLink="/about" class="dark-btn">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="my-card"
+            style="background-image: url(./imgs/pexels-tim-samuel-5834954.jpg)"
+          >
+            <div class="card-text">
+              <h2>Mission</h2>
+              <p>
+                At Royal Shield, our mission is to revolutionize surface
+                protection with our cutting-edge nano ceramic technology. We are
+                dedicated to delivering superior durability and an unparalleled
+                finish to every surface we touch. By combining innovation,
+                precision, and excellence, we empower our customers to safeguard
+                their investments with confidence and style
+              </p>
+              <a routerLink="/about" class="dark-btn">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 my-5">
+    <div class="container-fluid">
+      <div class="row align-items-center g-4">
+        <div class="col-md-3">
+          <div>
+            <h1>Our Products & Services</h1>
+            <p>
+              Royal Shield offers top-quality car protection products designed
+              to keep your vehicle looking new. From paint protection to
+              interior care, our solutions provide durable, long-lasting defense
+              against the elements.
+            </p>
+            <a routerLink="/products" class="dark-btn">Explore All Services</a>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide>
+              <div
+                class="my-carousel-slide-item text-black"
+                style="background-color: antiquewhite"
+              >
+                <h5>Product</h5>
+                <p class="fs-mini mb-0">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Numquam quia modi, hic in rerum exercitationem!
+                </p>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div
+                class="my-carousel-slide-item"
+                style="background-color: rgb(162, 130, 87)"
+              >
+                <h5>Service</h5>
+                <p class="fs-mini mb-0">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Numquam quia modi, hic in rerum exercitationem!
+                </p>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div
+                class="my-carousel-slide-item"
+                style="background-color: rgb(203, 137, 50)"
+              >
+                <h5>Service</h5>
+                <p class="fs-mini mb-0">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Numquam quia modi, hic in rerum exercitationem!
+                </p>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div
+                class="my-carousel-slide-item text-black"
+                style="background-color: rgb(241, 224, 202)"
+              >
+                <h5>Service</h5>
+                <p class="fs-mini mb-0">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Numquam quia modi, hic in rerum exercitationem!
+                </p>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div
+                class="my-carousel-slide-item"
+                style="background-color: rgb(84, 67, 46)"
+              >
+                <h5>Product</h5>
+                <p class="fs-mini mb-0">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Numquam quia modi, hic in rerum exercitationem!
+                </p>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 my-5">
+    <div class="container">
+      <h1 class="text-center mb-5">Who Are We</h1>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <img src="./imgs/team.jpg" alt="team" class="w-100" />
+        </div>
+        <div class="col-lg-6">
+          <div>
+            <h2>Royal Sheild Family</h2>
+          </div>
+          <p class="fs-20 text-light">
+            Royal Shield is a team of experts in surface protection, combining
+            knowledge in materials science, engineering, and customer support.
+            Their collaborative approach drives innovation, ensuring that their
+            nano ceramic solutions are cutting-edge and meet the highest
+            standards of quality and performance. Committed to excellence, they
+            focus on delivering outstanding results and experiences for their
+            customers.
+          </p>
+          <a routerLink="/about" class="dark-btn">About us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 my-5">
+    <div class="container">
+      <h1 class="text-center mb-5">Our Values</h1>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div>
+            <h2>Royal Sheild Family</h2>
+          </div>
+          <p class="fs-20 text-light">
+            At Royal Shield, our core values guide us to excel. We focus on
+            innovation in nano ceramic technology, quality for top performance,
+            integrity in our practices, and customer-centric service. We
+            prioritize sustainability and teamwork to achieve excellence and
+            drive progress.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <img src="./imgs/team.jpg" alt="team" class="w-100" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 my-5">
+    <div class="container">
+      <h1 class="text-center mb-5">What Customers Say About Us</h1>
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="testimonials">
+            <p class="position-relative">
+              <svg
+                aria-hidden="true"
+                width="105"
+                height="78"
+                class="qutation-mark"
+              >
+                <path
+                  d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z"
+                ></path>
+              </svg>
+              Royal Shield's products are a game-changer! My car looks brand new
+              even after months of use.
+            </p>
+            <hr />
+            <div class="footer">
+              <h6>Emily S</h6>
+              <img
+                src="https://www.ultimatebeaver.com/wp-content/uploads/bb-plugin/cache/photo-gallery-img-02-circle.jpg"
+                alt="person"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="testimonials">
+            <p class="position-relative">
+              <svg
+                aria-hidden="true"
+                width="105"
+                height="78"
+                class="qutation-mark"
+              >
+                <path
+                  d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z"
+                ></path>
+              </svg>
+              Amazing results! The paint protection keeps my car safe from
+              scratches and weather damage.
+            </p>
+            <hr />
+            <div class="footer">
+              <h6>Mike R</h6>
+              <img
+                src="https://www.ultimatebeaver.com/wp-content/uploads/bb-plugin/cache/photo-gallery-img-02-circle.jpg"
+                alt="person"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

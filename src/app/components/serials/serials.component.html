@@ -1,0 +1,56 @@
+<section class="py-5 my-5">
+  <div class="container">
+    <div class="mb-5">
+      <form [formGroup]="serialForm">
+        <label for="serialInput">Enter new Serial Number</label>
+        <input
+          type="text"
+          name=""
+          id="serialInput"
+          class="form-control"
+          formControlName="serialNumber"
+        />
+        <button class="btn btn-primary mt-2" (click)="addSerial()">Add</button>
+        @if (serialForm.get('serialNumber')?.errors &&
+        serialForm.get('serialNumber')?.touched) {
+        <div class="alert alert-danger mt-2">
+          @if (serialForm.get('serialNumber')?.getError('required')) {
+          <p>Feild is required</p>
+          } @if (serialForm.get('serialNumber')?.getError('minlength') ||
+          serialForm.get('serialNumber')?.getError('maxlength')) {
+          <p>Serial Should be 6 Characters</p>
+          }
+        </div>
+        }
+      </form>
+    </div>
+    <hr />
+    <table class="table table-striped table-bordered table-hover mt-5">
+      <thead>
+        <tr>
+          <th scope="col">code</th>
+          <th scope="col">Number of Checks</th>
+          <th scope="col">Activation Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (serial of serials; track $index) {
+        <tr>
+          <td>{{ serial.serialNumber }}</td>
+          <td>{{ serial.numOfChecks }}</td>
+          <td>{{ serial.activated }}</td>
+          <td>
+            <button
+              class="btn btn-danger"
+              (click)="deleteSerial(serial.serialNumber)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

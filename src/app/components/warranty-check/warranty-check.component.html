@@ -1,0 +1,106 @@
+<!-- <nav>
+  <div class="container">
+    <a routerLink="/home">
+      <img src="./imgs/logo.png" alt="" style="width: 70px" />
+    </a>
+  </div>
+</nav> -->
+<section>
+  <img src="./imgs/logo-transparent.png" alt="logo" class="logo-top-left" />
+  <img src="./imgs/logo-transparent.png" alt="logo" class="logo-bottom-right" />
+  <div class="container pt-5">
+    <div class="carousel-wrapper shadow-lg mb-5">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+          <div style="background-color: rgb(200, 44, 44)" class="my-slide">
+            <div>
+              <h5>Royal Shield World</h5>
+              <h5 class="mb-0">Proffessional Shield</h5>
+            </div>
+            <div class="logo">
+              <img src="./imgs/logo.png" alt="logo" />
+            </div>
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div style="background-color: rgb(105, 87, 192)" class="my-slide">
+            <div>
+              <h5>Royal Shield World</h5>
+              <h5 class="mb-0">Max Pro</h5>
+            </div>
+            <div class="logo">
+              <img src="./imgs/logo.png" alt="logo" />
+            </div>
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div style="background-color: rgb(70, 132, 165)" class="my-slide">
+            <div>
+              <h5>Royal Shield World</h5>
+              <h5 class="mb-0">Elegance Guard</h5>
+            </div>
+            <div class="logo">
+              <img src="./imgs/logo.png" alt="logo" />
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+    <form [formGroup]="serialForm">
+      <label for="serial" class="mb-2 fw-medium">Enter Serial Number</label>
+      <input
+        type="text"
+        id="serial"
+        class="form-control shadow"
+        formControlName="serialNumber"
+      />
+      <div class="d-flex align-items-center justify-content-between">
+        <button
+          class="btn btn-outline-dark rounded-0 mt-3"
+          (click)="checkSerial()"
+        >
+          Check @if (loading) {
+          <i class="fa-solid fa-spinner fa-spin ms-2"></i>
+          }
+        </button>
+
+        @if (numOfChecksTab) {
+        <a routerLink="/activation" class="btn btn-primary rounded-0 mt-3"
+          >Continue</a
+        >
+        }
+      </div>
+      @if (serialForm.get('serialNumber')?.errors &&
+      serialForm.get('serialNumber')?.touched) {
+      <div class="alert alert-danger mt-2">
+        @if (serialForm.get('serialNumber')?.getError('required')) {
+        <p>Feild is required</p>
+        } @if (serialForm.get('serialNumber')?.getError('minlength') ||
+        serialForm.get('serialNumber')?.getError('maxlength')) {
+        <p>Serial Should be 6 Characters</p>
+        }
+      </div>
+      } @if (moreThanThree) {
+      <div class="mt-3 alert alert-danger">
+        You Can't check the same serial number more than 3 times
+      </div>
+      } @if (numOfChecksTab) {
+      <div class="alert alert-primary mt-3" role="alert">
+        <p class="mb-0">You have {{ numOfChecks }} remaining Checks</p>
+      </div>
+
+      }
+    </form>
+  </div>
+</section>
+
+<div
+  class="ownedByTab"
+  [ngClass]="{ active: ownedByTab }"
+  (click)="ownedByTab = false"
+>
+  <div class="my-card">
+    <h3>Sorry this serial number owned by mr: {{ ownedBy.name }}</h3>
+    <h4>His phone number is ( ******** {{ ownedBy.phone }} )</h4>
+  </div>
+</div>
