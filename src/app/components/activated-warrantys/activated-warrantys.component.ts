@@ -9,6 +9,7 @@ import { SerialService } from '../../shared/services/serials.service';
 })
 export class ActivatedWarrantysComponent implements OnInit {
   constructor(private SerialService: SerialService) {}
+  searchTerm: string = '';
   noWarranty: boolean = false;
   ActivatedWarrantys: ActivatedWarrantys[] = [];
   ngOnInit(): void {

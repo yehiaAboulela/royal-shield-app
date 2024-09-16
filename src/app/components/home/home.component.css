@@ -114,7 +114,7 @@
 .testimonials .footer h6 {
   margin-bottom: 0;
 }
-.testimonials .footer img {
+.testimonials .footer .test-img {
   width: 50px;
   border-radius: 50%;
 }
@@ -130,6 +130,11 @@
   max-width: 600px;
   padding: 10px;
   margin-inline: auto;
+}
+.country-flag {
+  width: 30px;
+  border-radius: 0;
+  margin-inline-start: 10px;
 }
 @media screen and (max-width: 752px) {
   .my-card {

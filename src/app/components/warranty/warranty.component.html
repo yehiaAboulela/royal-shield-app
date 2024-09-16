@@ -2,7 +2,11 @@
   <img src="./imgs/logo-transparent.png" alt="logo" class="logo-top-left" />
   <img src="./imgs/logo-transparent.png" alt="logo" class="logo-bottom-right" />
   <div class="container">
-    <h1 class="text-center mb-5">Warranty Activation</h1>
+    <h1 class="text-center">Warranty Activation</h1>
+    <p class="text-center">
+      "Activate your warranty by filling out the form below. If you have any
+      questions, we're here to help!"
+    </p>
     <hr />
 
     <form
@@ -15,7 +19,7 @@
         <input
           type="text"
           id="name"
-          placeholder="Your name here"
+          placeholder="Your name"
           formControlName="name"
         />
       </div>
@@ -24,8 +28,9 @@
         <input
           type="tel"
           id="phone"
-          placeholder="(555) 123-4567"
+          placeholder="Phone number"
           formControlName="phoneNumber"
+          #phoneInput
         />
       </div>
       <div class="input-parent">
@@ -33,7 +38,7 @@
         <p-calendar
           type="date"
           id="birthdate"
-          placeholder="birthdate"
+          placeholder="Birthdate"
           formControlName="birthdate"
           styleClass="calender"
         />
@@ -43,7 +48,7 @@
         <input
           type="text"
           id="address"
-          placeholder="1234 Elm Street Apt 567 Springfield, IL 62704 USA"
+          placeholder="Your Address"
           formControlName="address"
         />
       </div>
@@ -52,7 +57,7 @@
         <input
           type="text"
           id="brand"
-          placeholder="bmw"
+          placeholder="Car brand"
           formControlName="brand"
         />
       </div>
@@ -61,7 +66,7 @@
         <input
           type="text"
           id="model"
-          placeholder="2015"
+          placeholder="Car model Ex: 2024"
           formControlName="model"
         />
       </div>
@@ -70,7 +75,7 @@
         <input
           type="text"
           id="color"
-          placeholder="red"
+          placeholder="Car color"
           formControlName="color"
         />
       </div>
@@ -79,7 +84,7 @@
         <input
           type="email"
           id="email"
-          placeholder="example@gmail.com"
+          placeholder="Your Email"
           formControlName="email"
         />
       </div>
@@ -113,6 +118,10 @@
 </div>
 
 <div class="success" [ngClass]="{ active: success }">
+  <iframe
+    src="https://lottie.host/embed/d972b7f5-bcb7-4bfa-aeff-9f12d6073587/953dRMBtpZ.json"
+  ></iframe>
   <h1>Congratulations</h1>
+  <h5 class="text-center">Your warranty has been activated successfully</h5>
   <app-confetti [active]="success"></app-confetti>
 </div>

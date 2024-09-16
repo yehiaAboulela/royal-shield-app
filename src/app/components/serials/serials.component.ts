@@ -31,7 +31,7 @@ export class SerialsComponent implements OnInit {
   serialForm: FormGroup = this.FormBuilder.group({
     serialNumber: [
       '',
-      [Validators.required, Validators.minLength(6), Validators.maxLength(6)],
+      [Validators.required, Validators.pattern('^[A-Za-z]{3}-[A-Za-z0-9]{6}$')],
     ],
   });
 

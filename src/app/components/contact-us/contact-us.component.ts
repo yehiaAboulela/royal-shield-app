@@ -26,11 +26,12 @@ export class ContactUsComponent {
 
   sendRequest(): void {
     if (this.requestForm.valid) {
+      this.requestForm.reset();
       this.loading = true;
       this.OffersService.sendRequest(this.requestForm.value).subscribe({
         next: (res) => {
           this.toaster.success(
-            "We've recieved your message succefully",
+            "We've recieved your message succefully, W'll be in touch soon",
             'Thanks for Reaching Out'
           );
           this.loading = false;

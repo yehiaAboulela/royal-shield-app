@@ -1,5 +1,6 @@
 <section class="py-5 my-5">
   <div class="container">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" />
     <table class="table table-striped table-bordered table-hover mt-5">
       <thead>
         <tr>
@@ -20,8 +21,8 @@
         <td colspan="10">
           <h2 class="text-center">There is no activated warrantys</h2>
         </td>
-        } @else if (!noWarranty) { @for (ActivatedWarranty of
-        ActivatedWarrantys; track $index) {
+        } @else if (!noWarranty) { @for (ActivatedWarranty of ActivatedWarrantys
+        |activatedSearch:searchTerm ; track $index) {
         <tr>
           <td>{{ ActivatedWarranty.name }}</td>
           <td>{{ ActivatedWarranty.phoneNumber }}</td>

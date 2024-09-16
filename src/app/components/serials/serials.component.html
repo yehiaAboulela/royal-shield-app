@@ -9,16 +9,17 @@
           id="serialInput"
           class="form-control"
           formControlName="serialNumber"
+          placeholder="ABC-123456"
         />
         <button class="btn btn-primary mt-2" (click)="addSerial()">Add</button>
         @if (serialForm.get('serialNumber')?.errors &&
         serialForm.get('serialNumber')?.touched) {
         <div class="alert alert-danger mt-2">
           @if (serialForm.get('serialNumber')?.getError('required')) {
-          <p>Feild is required</p>
-          } @if (serialForm.get('serialNumber')?.getError('minlength') ||
-          serialForm.get('serialNumber')?.getError('maxlength')) {
-          <p>Serial Should be 6 Characters</p>
+          <p class="mb-0">Feild is required</p>
+          } @if (serialForm.get('serialNumber')?.getError('pattern')) {
+          <p>Make sure to enter a valid serial</p>
+          <p class="mb-0 text-black-50">Ex: ABC-123123</p>
           }
         </div>
         }

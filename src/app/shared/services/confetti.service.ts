@@ -7,20 +7,30 @@ import confetti from 'canvas-confetti';
 export class ConfettiService {
   constructor() {}
 
+  // launchConfetti() {
+  //   setInterval(() => {
+  //     confetti({
+  //       particleCount: 30,
+  //       angle: 60,
+  //       spread: 155,
+  //       origin: { x: 0 }, // Left side
+  //     });
+  //     confetti({
+  //       particleCount: 30,
+  //       angle: 120,
+  //       spread: 155,
+  //       origin: { x: 1 }, // Right side
+  //     });
+  //   }, 1000); // Launches confetti every 200 milliseconds (adjust as needed)
+  // }
   launchConfetti() {
     setInterval(() => {
       confetti({
-        particleCount: 30,
-        angle: 60,
-        spread: 155,
-        origin: { x: 0 }, // Left side
+        particleCount: 200,
+        angle: 90, // Confetti goes straight up
+        spread: 140,
+        origin: { x: 0.5, y: 0 }, // Starts from the bottom center
       });
-      confetti({
-        particleCount: 30,
-        angle: 120,
-        spread: 155,
-        origin: { x: 1 }, // Right side
-      });
-    }, 500); // Launches confetti every 200 milliseconds (adjust as needed)
+    }, 1000); // Launches confetti every 500 milliseconds
   }
 }

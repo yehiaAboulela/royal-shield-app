@@ -40,6 +40,7 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { ConfettiComponent } from './components/confetti/confetti.component';
 import { NanoCeramicComponent } from './components/gallery/nano-ceramic/nano-ceramic.component';
 import { GraphineComponent } from './components/gallery/graphine/graphine.component';
+import { ActivatedSearchPipe } from './shared/pipes/activated-search.pipe';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { GraphineComponent } from './components/gallery/graphine/graphine.compon
     ConfettiComponent,
     NanoCeramicComponent,
     GraphineComponent,
+    ActivatedSearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import { GraphineComponent } from './components/gallery/graphine/graphine.compon
     ToastrModule.forRoot(), // ToastrModule added
     FloatLabelModule,
     CalendarModule,
+    // NgxMaterialIntlTelInputComponet
   ],
   providers: [provideHttpClient()],
 
