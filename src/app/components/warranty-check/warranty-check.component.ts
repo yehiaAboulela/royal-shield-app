@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { SerialService } from '../../shared/services/serials.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Messages } from 'primeng/messages';
-import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
 

@@ -60,7 +60,7 @@
         id="serial"
         class="form-control shadow"
         formControlName="serialNumber"
-        placeholder="ABC-"
+        placeholder="ABC-123456"
       />
       <div class="d-flex align-items-center justify-content-between">
         <button
@@ -73,7 +73,9 @@
         </button>
 
         @if (numOfChecksTab) {
-        <a routerLink="/activation" class="btn btn-primary rounded-0 mt-3"
+        <a
+          routerLink="/activation"
+          class="btn btn-primary rounded-0 mt-3 cont-btn"
           >Continue</a
         >
         }
@@ -97,7 +99,7 @@
       } @if (numOfChecksTab) {
       <p class="mt-3 mb-0">Your 1 step closer to activate you warranty</p>
       <p class="fw-bold text-primary">
-        This product provided by Royal Shield World Group
+        This product provided by Royal Protect Car at Royal Group Egypt
       </p>
       <div class="alert alert-primary mt-3" role="alert">
         <p class="mb-0">You have {{ numOfChecks }} remaining Checks</p>

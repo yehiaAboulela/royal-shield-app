@@ -1,9 +1,17 @@
 <section>
   <div class="container">
-    <button class="btn btn-danger mt-5" (click)="warningMsg = true">
-      Clear All
-    </button>
-    <table class="table table-striped table-bordered table-hover mt-2">
+    <div class="mt-5">
+      <button class="btn btn-danger" (click)="warningMsg = true">
+        Clear All
+      </button>
+      <button class="btn btn-secondary ms-2" (click)="exportData()">
+        Export Table
+      </button>
+    </div>
+    <table
+      class="table table-striped table-bordered table-hover mt-2"
+      id="requests"
+    >
       <thead>
         <tr>
           <th scope="col">Name</th>

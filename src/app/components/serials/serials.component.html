@@ -24,9 +24,15 @@
         </div>
         }
       </form>
+      <button class="btn btn-secondary mt-2" (click)="exportData()">
+        Export table
+      </button>
     </div>
     <hr />
-    <table class="table table-striped table-bordered table-hover mt-5">
+    <table
+      class="table table-striped table-bordered table-hover mt-5"
+      id="serials"
+    >
       <thead>
         <tr>
           <th scope="col">code</th>

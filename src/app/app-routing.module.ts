@@ -1,66 +1,87 @@
-import { ActivatedWarrantysComponent } from './components/activated-warrantys/activated-warrantys.component';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { VideosComponent } from './components/videos/videos.component';
-import { ResellersComponent } from './components/resellers/resellers.component';
-import { WarrantyComponent } from './components/warranty/warranty.component';
-import { UserLayoutComponent } from './components/user-layout/user-layout.component';
+import { ActivatedWarrantysComponent } from './components/activated-warrantys/activated-warrantys.component';
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { HomeComponent } from './components/home/home.component';
+import { ResellersComponent } from './components/resellers/resellers.component';
 import { SerialsComponent } from './components/serials/serials.component';
+import { UserLayoutComponent } from './components/user-layout/user-layout.component';
 import { WarrantyCheckComponent } from './components/warranty-check/warranty-check.component';
-// import { ActivationComponent } from './components/activation/activation.component';
-import { warrantyGuard } from './shared/guards/warranty.guard';
-import { RequestsComponent } from './components/requests/requests.component';
+import { WarrantyComponent } from './components/warranty/warranty.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
-import { adminLoginGuard } from './shared/guards/admin-login.guard';
-import { ThankYouComponent } from './components/thank-you/thank-you.component';
-import { NanoCeramicComponent } from './components/gallery/nano-ceramic/nano-ceramic.component';
+import { AutoCareComponent } from './components/gallery/auto-care/auto-care.component';
+import { DippingComponent } from './components/gallery/dipping/dipping.component';
 import { GraphineComponent } from './components/gallery/graphine/graphine.component';
+import { NanoCeramicComponent } from './components/gallery/nano-ceramic/nano-ceramic.component';
+import { PaintProtectionComponent } from './components/gallery/paint-protection/paint-protection.component';
+import { WrappingComponent } from './components/gallery/wrapping/wrapping.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { adminLoginGuard } from './shared/guards/admin-login.guard';
+import { warrantyGuard } from './shared/guards/warranty.guard';
+import { InsulationComponent } from './components/gallery/insulation/insulation.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: UserLayoutComponent,
-  //   children: [
-  //     { path: '', redirectTo: 'home', pathMatch: 'full' },
-  //     { path: 'home', component: HomeComponent, title: 'Royal Shield | Home' },
-  //     {
-  //       path: 'about',
-  //       component: AboutComponent,
-  //       title: 'Royal Shield | About',
-  //     },
-  //     {
-  //       path: 'contact-us',
-  //       component: ContactUsComponent,
-  //       title: 'Royal Shield | Contact',
-  //     },
-  //     {
-  //       path: 'products',
-  //       component: GalleryComponent,
-  //       title: 'Royal Shield | Products',
-  //     },
-  //     {
-  //       path: 'nano-ceramic',
-  //       component: NanoCeramicComponent,
-  //       title: 'Royal Shield | nano-ceramic',
-  //     },
-  //     {
-  //       path: 'graphine',
-  //       component: GraphineComponent,
-  //       title: 'Royal Shield | graphine',
-  //     },
-  //     // { path: 'videos', component: VideosComponent, title: 'Royal Shield | Contact' },
-  //     {
-  //       path: 'resellers',
-  //       component: ResellersComponent,
-  //       title: 'Royal Shield | Resellers',
-  //     },
-  //   ],
-  // },
+  {
+    path: '',
+    component: UserLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent, title: 'Royal Shield | Home' },
+      {
+        path: 'about',
+        component: AboutComponent,
+        title: 'Royal Shield | About',
+      },
+      {
+        path: 'contact-us',
+        component: ContactUsComponent,
+        title: 'Royal Shield | Contact',
+      },
+      {
+        path: 'nano-ceramic',
+        component: NanoCeramicComponent,
+        title: 'Royal Shield | nano ceramic',
+      },
+      {
+        path: 'graphine',
+        component: GraphineComponent,
+        title: 'Royal Shield | graphine',
+      },
+      {
+        path: 'auto care',
+        component: AutoCareComponent,
+        title: 'Royal Shield | auto care',
+      },
+      {
+        path: 'protection film',
+        component: PaintProtectionComponent,
+        title: 'Royal Shield | protection film',
+      },
+      {
+        path: 'dipping',
+        component: DippingComponent,
+        title: 'Royal Shield | dipping',
+      },
+      {
+        path: 'wrapping',
+        component: WrappingComponent,
+        title: 'Royal Shield | wrapping',
+      },
+      {
+        path: 'resellers',
+        component: ResellersComponent,
+        title: 'Royal Shield | Resellers',
+      },
+      {
+        path: 'insulation',
+        component: InsulationComponent,
+        title: 'Royal Shield | insulation',
+      },
+    ],
+  },
   {
     path: 'admin',
     component: AdminLayoutComponent,
@@ -91,7 +112,7 @@ const routes: Routes = [
     canActivate: [warrantyGuard],
   },
   { path: 'thank-you', component: ThankYouComponent },
-  // { path: 'activation', component: ActivationComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

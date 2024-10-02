@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect URLs with trailing slash to URLs without trailing slash
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+  # Redirect all other URLs to index.html so Angular can handle the routing
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^.*$ /index.html [L]
+</IfModule>

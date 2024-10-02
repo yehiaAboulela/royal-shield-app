@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgParticlesModule } from 'ng-particles';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +22,7 @@ import { SerialsComponent } from './components/serials/serials.component';
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import {
   CommonModule,
   HashLocationStrategy,
@@ -31,8 +31,6 @@ import {
 import { ToastrModule } from 'ngx-toastr';
 import { WarrantyCheckComponent } from './components/warranty-check/warranty-check.component';
 import { ActivationComponent } from './components/activation/activation.component';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { CalendarModule } from 'primeng/calendar';
 import { RequestsComponent } from './components/requests/requests.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ActivatedWarrantysComponent } from './components/activated-warrantys/activated-warrantys.component';
@@ -41,6 +39,11 @@ import { ConfettiComponent } from './components/confetti/confetti.component';
 import { NanoCeramicComponent } from './components/gallery/nano-ceramic/nano-ceramic.component';
 import { GraphineComponent } from './components/gallery/graphine/graphine.component';
 import { ActivatedSearchPipe } from './shared/pipes/activated-search.pipe';
+import { PaintProtectionComponent } from './components/gallery/paint-protection/paint-protection.component';
+import { AutoCareComponent } from './components/gallery/auto-care/auto-care.component';
+import { DippingComponent } from './components/gallery/dipping/dipping.component';
+import { WrappingComponent } from './components/gallery/wrapping/wrapping.component';
+import { InsulationComponent } from './components/gallery/insulation/insulation.component';
 
 @NgModule({
   declarations: [
@@ -69,11 +72,15 @@ import { ActivatedSearchPipe } from './shared/pipes/activated-search.pipe';
     NanoCeramicComponent,
     GraphineComponent,
     ActivatedSearchPipe,
+    PaintProtectionComponent,
+    AutoCareComponent,
+    DippingComponent,
+    WrappingComponent,
+    InsulationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgParticlesModule,
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
@@ -81,9 +88,6 @@ import { ActivatedSearchPipe } from './shared/pipes/activated-search.pipe';
     ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(), // ToastrModule added
-    FloatLabelModule,
-    CalendarModule,
-    // NgxMaterialIntlTelInputComponet
   ],
   providers: [provideHttpClient()],
 

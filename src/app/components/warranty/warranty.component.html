@@ -1,12 +1,14 @@
 <section class="py-5">
   <img src="./imgs/logo-transparent.png" alt="logo" class="logo-top-left" />
   <img src="./imgs/logo-transparent.png" alt="logo" class="logo-bottom-right" />
+
   <div class="container">
     <h1 class="text-center">Warranty Activation</h1>
     <p class="text-center">
       "Activate your warranty by filling out the form below. If you have any
       questions, we're here to help!"
     </p>
+
     <hr />
 
     <form
@@ -21,7 +23,18 @@
           id="name"
           placeholder="Your name"
           formControlName="name"
+          #nameInput
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('name')?.errors &&
+              (warrantyForm.get('name')?.touched || nameInput.value.length > 0)
+          }"
+        >
+          <p>Name Should be at least 3 characters</p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="phone">Phone Number:</label> -->
@@ -32,16 +45,46 @@
           formControlName="phoneNumber"
           #phoneInput
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              validationErrorMessages &&
+              (warrantyForm.get('phoneNumber')?.touched ||
+                phoneInput.value.length > 0)
+          }"
+        >
+          <p>
+            {{ getPhoneValidationMessage() }}
+          </p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="birthdate">Birth Date</label> -->
-        <p-calendar
+        <!-- <p-calendar
           type="date"
           id="birthdate"
           placeholder="Birthdate"
           formControlName="birthdate"
           styleClass="calender"
+        /> -->
+        <input
+          type="date"
+          id="birthdate"
+          placeholder="Birthdate"
+          formControlName="birthdate"
+          #date
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('birthdate')?.errors &&
+              (warrantyForm.get('birthdate')?.touched || date.value.length > 0)
+          }"
+        >
+          <p>Required</p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="address">Address</label> -->
@@ -50,7 +93,18 @@
           id="address"
           placeholder="Your Address"
           formControlName="address"
+          #address
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('address')?.errors &&
+              (warrantyForm.get('address')?.touched || address.value.length > 0)
+          }"
+        >
+          <p>Address should be valid</p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="brand">Brand</label> -->
@@ -59,7 +113,18 @@
           id="brand"
           placeholder="Car brand"
           formControlName="brand"
+          #brand
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('brand')?.errors &&
+              (warrantyForm.get('brand')?.touched || brand.value.length > 0)
+          }"
+        >
+          <p>Required</p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="model">Model</label> -->
@@ -68,7 +133,18 @@
           id="model"
           placeholder="Car model Ex: 2024"
           formControlName="model"
+          #model
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('model')?.errors &&
+              (warrantyForm.get('model')?.touched || model.value.length > 0)
+          }"
+        >
+          <p>Required and should be valid</p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="color">Color</label> -->
@@ -77,7 +153,18 @@
           id="color"
           placeholder="Car color"
           formControlName="color"
+          #color
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('color')?.errors &&
+              (warrantyForm.get('color')?.touched || color.value.length > 0)
+          }"
+        >
+          <p>Required</p>
+        </div>
       </div>
       <div class="input-parent">
         <!-- <label for="email">Email:</label> -->
@@ -86,7 +173,18 @@
           id="email"
           placeholder="Your Email"
           formControlName="email"
+          #email
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('email')?.errors &&
+              (warrantyForm.get('email')?.touched || email.value.length > 0)
+          }"
+        >
+          <p>Please enter a valid Email address</p>
+        </div>
       </div>
 
       <div class="input-parent">
@@ -96,10 +194,49 @@
           id="serialNumber"
           placeholder="Serial Number"
           formControlName="serialNumber"
+          #serialNumber
         />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('serialNumber')?.errors &&
+              (warrantyForm.get('serialNumber')?.touched ||
+                serialNumber.value.length > 0)
+          }"
+        >
+          <p>
+            Please enter a valid Serial Number
+            <span class="text-black-50">EX: ABC-123456</span>
+          </p>
+        </div>
+      </div>
+      <div class="input-parent">
+        <label for="customFile">Warranty Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="customFile"
+          (change)="onFileSelected($event)"
+          formControlName="image"
+        />
+        <div
+          class="vlidationMessage"
+          [ngClass]="{
+            active:
+              warrantyForm.get('image')?.errors &&
+              warrantyForm.get('image')?.touched
+          }"
+        >
+          <p>Required</p>
+        </div>
       </div>
       <div>
-        <button class="btn-form" type="submit">Submit</button>
+        <button class="btn-form" type="submit">
+          Submit @if (loading) {
+          <i class="fa-solid fa-spinner fa-spin ms-2"></i>
+          }
+        </button>
       </div>
     </form>
     <hr />
@@ -118,10 +255,19 @@
 </div>
 
 <div class="success" [ngClass]="{ active: success }">
-  <iframe
-    src="https://lottie.host/embed/d972b7f5-bcb7-4bfa-aeff-9f12d6073587/953dRMBtpZ.json"
-  ></iframe>
-  <h1>Congratulations</h1>
-  <h5 class="text-center">Your warranty has been activated successfully</h5>
-  <app-confetti [active]="success"></app-confetti>
+  <div class="success-card shadow">
+    <div class="card-top">
+      <img
+        src="https://cdn-icons-png.freepik.com/512/8566/8566439.png"
+        alt="bage"
+      />
+    </div>
+    <div class="card-body">
+      <h3>Congratulations</h3>
+      <p class="text-center fs-6">
+        Your warranty has been activated successfully
+      </p>
+    </div>
+    <app-confetti [active]="success"></app-confetti>
+  </div>
 </div>

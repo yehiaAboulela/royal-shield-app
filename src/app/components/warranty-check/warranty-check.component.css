@@ -132,7 +132,18 @@ input:focus {
   z-index: -1;
   transform: rotate(-20deg);
 }
-
+.cont-btn {
+  animation: bulsating 1s linear infinite;
+}
+@keyframes bulsating {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
 @media screen and (max-width: 850px) {
   .logo-top-left,
   .logo-bottom-right {

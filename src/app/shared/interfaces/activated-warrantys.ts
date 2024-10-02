@@ -7,6 +7,7 @@ export interface ActivatedWarrantys {
   brand: string;
   model: string;
   color: string;
+  imagePath: string;
   serialNumber: string;
   createdAt: string;
   __v: number;

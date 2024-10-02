@@ -1,6 +1,7 @@
 import { ActivatedWarrantys } from './../../shared/interfaces/activated-warrantys';
 import { Component, OnInit } from '@angular/core';
 import { SerialService } from '../../shared/services/serials.service';
+import { TableUtil } from '../../tableUtil';
 
 @Component({
   selector: 'app-activated-warrantys',
@@ -12,6 +13,8 @@ export class ActivatedWarrantysComponent implements OnInit {
   searchTerm: string = '';
   noWarranty: boolean = false;
   ActivatedWarrantys: ActivatedWarrantys[] = [];
+  fullScreenImg: string = '';
+
   ngOnInit(): void {
     this.SerialService.getActivatedWarrantys().subscribe({
       next: (res) => {
@@ -31,5 +34,20 @@ export class ActivatedWarrantysComponent implements OnInit {
         this.ActivatedWarrantys = res.remainingActivations;
       },
     });
+  }
+
+  exportData(): void {
+    TableUtil.exportTableToExcel(
+      'activatedWarrantysTable',
+      'activatedWarrantysTable'
+    );
+  }
+
+  getImgPath(path: string): string {
+    return `https://royal-shield.up.railway.app/${path}`;
+  }
+
+  openImgTap(src: string) {
+    this.fullScreenImg = src;
   }
 }

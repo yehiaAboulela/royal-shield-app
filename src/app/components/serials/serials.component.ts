@@ -4,6 +4,7 @@ import { Serial } from './../../shared/interfaces/serial';
 import { SerialService } from './../../shared/services/serials.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { TableUtil } from '../../tableUtil';
 
 @Component({
   selector: 'app-serials',
@@ -58,5 +59,9 @@ export class SerialsComponent implements OnInit {
         }
       },
     });
+  }
+
+  exportData(): void {
+    TableUtil.exportTableToExcel('serials', 'serials');
   }
 }

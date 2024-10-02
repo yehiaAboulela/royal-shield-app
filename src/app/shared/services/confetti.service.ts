@@ -5,32 +5,50 @@ import confetti from 'canvas-confetti';
   providedIn: 'root',
 })
 export class ConfettiService {
+  private count = 200;
+  private defaults = {
+    origin: { y: 0.7 },
+  };
+
   constructor() {}
 
-  // launchConfetti() {
-  //   setInterval(() => {
-  //     confetti({
-  //       particleCount: 30,
-  //       angle: 60,
-  //       spread: 155,
-  //       origin: { x: 0 }, // Left side
-  //     });
-  //     confetti({
-  //       particleCount: 30,
-  //       angle: 120,
-  //       spread: 155,
-  //       origin: { x: 1 }, // Right side
-  //     });
-  //   }, 1000); // Launches confetti every 200 milliseconds (adjust as needed)
-  // }
+  // A method that handles the particle effects
+  private fire(particleRatio: number, opts: any) {
+    confetti({
+      ...this.defaults,
+      ...opts,
+      particleCount: Math.floor(this.count * particleRatio),
+    });
+  }
+
+  // The main method to launch the confetti effect
   launchConfetti() {
-    setInterval(() => {
-      confetti({
-        particleCount: 200,
-        angle: 90, // Confetti goes straight up
-        spread: 140,
-        origin: { x: 0.5, y: 0 }, // Starts from the bottom center
-      });
-    }, 1000); // Launches confetti every 500 milliseconds
+    // Call the fire function with various configurations
+    this.fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+
+    this.fire(0.2, {
+      spread: 60,
+    });
+
+    this.fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+
+    this.fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+
+    this.fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
   }
 }

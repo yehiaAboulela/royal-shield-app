@@ -85,18 +85,37 @@
   width: 300px;
 }
 .my-carousel-slide-item {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: end;
   margin: 0 10px;
   padding: 10px;
   height: 350px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+.my-carousel-slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* hide element */
+  display: none;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.676);
+  color: white !important;
+  transform: translateX(-100%);
+  transition: 0.3s;
+}
+.my-carousel-slide-item:hover .my-carousel-slide-content {
+  transform: translateX(0);
 }
 .testimonials {
   padding: 20px;
   border: 2px solid white;
-  /* border-radius: 20px; */
   transition: 0.3s;
 }
 .testimonials:hover {
@@ -116,7 +135,9 @@
 }
 .testimonials .footer .test-img {
   width: 50px;
+  height: 50px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .qutation-mark {
   position: absolute;
@@ -132,9 +153,47 @@
   margin-inline: auto;
 }
 .country-flag {
-  width: 30px;
+  width: 30px !important;
   border-radius: 0;
   margin-inline-start: 10px;
+}
+.yachts-parent {
+  padding: 20px 150px;
+}
+.yacht-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1.3;
+}
+.yacht-wrapper .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 20px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.645);
+  mix-blend-mode: luminosity;
+  transition: 0.6s;
+}
+.yacht-wrapper .overlay .lead {
+  color: rgba(255, 255, 255, 0.709);
+}
+.yacht-wrapper .overlay:hover {
+  opacity: 1;
+}
+.yacht-wrapper img {
+  height: 100%;
+  object-fit: cover;
 }
 @media screen and (max-width: 752px) {
   .my-card {
@@ -152,5 +211,13 @@
   }
   .intro {
     width: 100%;
+  }
+  .yachts-parent {
+    padding: 20px 0px;
+  }
+}
+@media screen and (max-width: 1052px) {
+  .yachts-parent {
+    padding: 20px 50px;
   }
 }

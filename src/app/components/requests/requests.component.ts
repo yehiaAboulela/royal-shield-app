@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OffersService } from '../../shared/services/offers.service';
 import { Offer } from '../../shared/interfaces/offer';
 import { ToastrService } from 'ngx-toastr';
-
+import { TableUtil } from '../../tableUtil';
 @Component({
   selector: 'app-requests',
   templateUrl: './requests.component.html',
@@ -48,5 +48,9 @@ export class RequestsComponent implements OnInit {
         this.toaster.success('All requests have been deleted succefully');
       },
     });
+  }
+
+  exportData(): void {
+    TableUtil.exportTableToExcel('requests', 'Site-Messages');
   }
 }
