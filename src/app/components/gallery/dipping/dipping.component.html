@@ -9,9 +9,10 @@
     <div class="product-card">
       <div class="img">
         <img
-          src="./imgs/dipping1.jpeg"
-          alt="Self Healing"
-          class="product-img"
+          src="/imgs/car.png"
+          class="car-image"
+          [style.background-color]="finalColor"
+          #screenshotDiv
         />
       </div>
       <div class="text">
@@ -22,12 +23,22 @@
           whenever you want, with simple removal.
         </p>
 
-        <ul>
-          <li>Multiple unique color options.</li>
-          <li>Protection against scratches and dirt.</li>
-          <li>Easily removable without leaving a trace.</li>
-          <li>Lasts up to 10 years, with the option for reapplication.</li>
-        </ul>
+        <!-- <ul>
+          <li>A variety of glossy and matte color options.</li>
+          <li>Advanced protection against scratches and UV rays.</li>
+          <li>Easy application with bubble-reduction technology.</li>
+          <li>Durability lasting up to 10 years.</li>
+        </ul> -->
+        <div class="color-input">
+          <input type="color" [(ngModel)]="color1" (input)="changeColor()" />
+        </div>
+
+        <button
+          class="btn btn-outline-light save-img-btn"
+          (click)="takeScreenshot()"
+        >
+          Save image
+        </button>
       </div>
     </div>
   </div>

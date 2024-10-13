@@ -3,28 +3,34 @@
     <h1 class="text-center">Wrapping</h1>
   </div>
 </section>
-
+<!-- 
 <div class="vh-100">
-  <div class="product-wrapper" id="capture">
-    <div class="color-input"> 
-       <input type="color" [(ngModel)]="color1" (input)="changeColor()"/>
-       <input type="color" [(ngModel)]="color2" (input)="changeColor()" />
-       <input type="color" [(ngModel)]="color3" (input)="changeColor()"/>
+  <div class="product-wrapper">
+    <div class="color-input">
+      <input type="color" [(ngModel)]="color1" (input)="changeColor()" />
+      <input type="color" [(ngModel)]="color2" (input)="changeColor()" />
+      <input type="color" [(ngModel)]="color3" (input)="changeColor()" />
     </div>
-    <img src="/imgs/shirt1.png" class="img-1" />
-    <img src="/imgs/shirt2.png" class="img-2" />
-    <div class="color" [style.background-image]="finalColor"></div>
+
+    <img
+      src="/imgs/car.png"
+      class="car-image"
+      [style.background-image]="finalColor"
+      #screenshotDiv
+      (click)="takeScreenshot()"
+    />
   </div>
-</div>
+</div> -->
 
 <section class="mt-5 contact-cards">
   <div class="container gallery-container">
     <div class="product-card">
       <div class="img">
         <img
-          src="./imgs/wrapping1.jpeg"
-          alt="Self Healing"
-          class="product-img"
+          src="/imgs/car.png"
+          class="car-image"
+          [style.background-image]="finalColor"
+          #screenshotDiv
         />
       </div>
       <div class="text">
@@ -35,12 +41,24 @@
           colors and finishes to suit all tastes.
         </p>
 
-        <ul>
+        <!-- <ul>
           <li>A variety of glossy and matte color options.</li>
           <li>Advanced protection against scratches and UV rays.</li>
           <li>Easy application with bubble-reduction technology.</li>
           <li>Durability lasting up to 10 years.</li>
-        </ul>
+        </ul> -->
+        <div class="color-input">
+          <input type="color" [(ngModel)]="color1" (input)="changeColor()" />
+          <input type="color" [(ngModel)]="color2" (input)="changeColor()" />
+          <input type="color" [(ngModel)]="color3" (input)="changeColor()" />
+        </div>
+
+        <button
+          class="btn btn-outline-light save-img-btn"
+          (click)="takeScreenshot()"
+        >
+          Save image
+        </button>
       </div>
     </div>
   </div>

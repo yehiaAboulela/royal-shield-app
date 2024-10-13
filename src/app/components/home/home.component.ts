@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -6,7 +12,15 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
+  @ViewChild('homeVideo') homeVideo!: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit(): void {
+    this.homeVideo.nativeElement.muted = true;
+    this.homeVideo.nativeElement.autoplay = true;
+    this.homeVideo.nativeElement.loop = true;
+  }
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -17,11 +31,9 @@ export class HomeComponent {
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
+    margin: 20,
     responsive: {
       0: {
-        items: 1,
-      },
-      400: {
         items: 2,
       },
       740: {

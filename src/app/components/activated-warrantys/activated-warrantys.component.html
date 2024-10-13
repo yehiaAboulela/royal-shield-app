@@ -35,11 +35,7 @@
         </tr>
       </thead>
       <tbody>
-        @if (noWarranty) {
-        <td colspan="10">
-          <h2 class="text-center">There is no activated warrantys</h2>
-        </td>
-        } @else if (!noWarranty) { @for (ActivatedWarranty of ActivatedWarrantys
+        @for (ActivatedWarranty of ActivatedWarrantys
         |activatedSearch:searchTerm ; track $index) {
         <tr>
           <td>{{ ActivatedWarranty.name }}</td>
@@ -75,7 +71,7 @@
             </button>
           </td>
         </tr>
-        } }
+        }
       </tbody>
     </table>
   </div>

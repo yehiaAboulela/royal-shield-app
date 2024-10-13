@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,9 +11,16 @@ export class SerialService {
   serverUrl: string = 'https://royal-shield.up.railway.app';
   // serverUrl: string = 'http://localhost:3000';
 
-  getSerials(): Observable<any> {
-    return this.http.get(`${this.serverUrl}/viewSerials`);
+  getToken(): string | null {
+    return sessionStorage.getItem('authToken');
   }
+  getSerials(): Observable<any> {
+    const token = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(`${this.serverUrl}/viewSerials`, { headers });
+  }
+
   addSerial(serial: any): Observable<any> {
     return this.http.post(`${this.serverUrl}/addSerial`, serial);
   }
@@ -32,7 +39,10 @@ export class SerialService {
   }
 
   getActivatedWarrantys(): Observable<any> {
-    return this.http.get(`${this.serverUrl}/activatedWarrantys`);
+    const token = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(`${this.serverUrl}/activatedWarrantys`, { headers });
   }
 
   deleteActivation(serial: string): Observable<any> {

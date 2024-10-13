@@ -11,23 +11,40 @@
       aria-controls="collapsibleNavId"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      (click)="show = true"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <div
+      class="collapse navbar-collapse"
+      [ngClass]="{ show: show }"
+      id="collapsibleNavId"
+    >
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/home"
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/home"
+            (click)="hideMinue()"
             >Home</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/resellers"
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/resellers"
+            (click)="hideMinue()"
             >Resellers</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/contact-us"
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/contact-us"
+            (click)="hideMinue()"
             >Contact Us</a
           >
         </li>
@@ -50,19 +67,44 @@
             class="dropdown-menu dropdown-menu-dark"
             aria-labelledby="dropdownId"
           >
-            <a class="dropdown-item" routerLink="/graphine">Nano graphine</a>
-            <a class="dropdown-item" routerLink="/nano-ceramic">Nano Ceramic</a>
-            <a class="dropdown-item" routerLink="/protection film"
+            <a
+              class="dropdown-item"
+              (click)="hideMinue()"
+              routerLink="/graphene"
+              >Nano graphene</a
+            >
+            <a
+              class="dropdown-item"
+              (click)="hideMinue()"
+              routerLink="/nano-ceramic"
+              >Nano Ceramic</a
+            >
+            <a
+              class="dropdown-item"
+              (click)="hideMinue()"
+              routerLink="/protection-film"
               >Protection Film</a
             >
-            <a class="dropdown-item" href="/wrapping">Wrapping</a>
-            <a class="dropdown-item" href="/dipping">Dipping</a>
-            <a class="dropdown-item" href="/auto care">Auto Care</a>
-            <a class="dropdown-item" href="/insulation">Thermal insulation</a>
+            <a class="dropdown-item" (click)="hideMinue()" href="/wrapping"
+              >Wrapping</a
+            >
+            <a class="dropdown-item" (click)="hideMinue()" href="/dipping"
+              >Dipping</a
+            >
+            <a class="dropdown-item" (click)="hideMinue()" href="/auto-care"
+              >Auto Care</a
+            >
+            <a class="dropdown-item" (click)="hideMinue()" href="/insulation"
+              >Thermal insulation</a
+            >
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/about"
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/about"
+            (click)="hideMinue()"
             >About</a
           >
         </li>

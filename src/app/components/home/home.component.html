@@ -2,7 +2,7 @@
   <section>
     <header class="home-header">
       <div class="header-vid w-100">
-        <video autoplay loop muted playsInline class="w-100">
+        <video id="#homeVideo" class="w-100" #homeVideo muted>
           <source src="./videos/header_vid.mp4" type="video/mp4" />
         </video>
       </div>
@@ -12,13 +12,13 @@
           <!-- <img src="./imgs/logo.png" alt="logo" class="intro-logo" /> -->
           <h1 class="fw-normal fs-lg">Royal Sheild</h1>
           <p class="text-light fs-20">
-            "A premium brand specializing in advanced protection for cars and
+            A premium brand specializing in advanced protection for vehicles and
             other surfaces. Its products are designed to provide superior
-            protection and enhance the appearance of vehicles and surfaces."
+            protection and enhance the appearance of vehicles and surfaces.
           </p>
         </div>
       </div>
-      <a routerLink="/contact-us" class="btn header-btn">Request an offer</a>
+      <a routerLink="/contact-us" class="btn header-btn">Request Offer</a>
     </header>
   </section>
 
@@ -30,7 +30,11 @@
       <div class="row g-4 yachts-parent">
         <div class="col-md-6">
           <div class="yacht-wrapper">
-            <img src="/imgs/car.jpeg" alt="car" class="w-100" />
+            <img
+              src="https://images.pexels.com/photos/19315070/pexels-photo-19315070/free-photo-of-sports-car-parked-on-rooftop.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="car"
+              class="w-100"
+            />
             <div class="overlay">
               <h3>Cars Protection</h3>
               <p class="lead">
@@ -43,19 +47,24 @@
         </div>
         <div class="col-md-6">
           <div class="yacht-wrapper">
-            <img src="/imgs/privateJet.jpeg" alt="jet" class="w-100" />
+            <img
+              src="https://images.pexels.com/photos/23124351/pexels-photo-23124351/free-photo-of-front-view-of-a-helicopter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="jet"
+              class="w-100"
+            />
             <div class="overlay">
-              <h3>Jets Protection</h3>
+              <h3>Aircraft protection</h3>
               <p class="lead">
-                Our advanced solutions ensure jets and aircraft stay pristine,
-                reducing wear and tear while enhancing their overall aesthetic.
+                Our advanced solutions ensure aircraft remain in excellent
+                condition, protect them from weather exposure, reduce corrosion
+                while enhancing their overall aesthetics.
               </p>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="yacht-wrapper">
-            <img src="/imgs/moto.jpeg" alt="motorcycle" class="w-100" />
+            <img src="/imgs/motorcycle.jpg" alt="motorcycle" class="w-100" />
             <div class="overlay">
               <h3>Bikes Protection</h3>
               <p class="lead">
@@ -105,7 +114,7 @@
         <div class="col-md-6">
           <div
             class="my-card"
-            style="background-image: url(./imgs/luxuryca.webp)"
+            style="background-image: url(./imgs/blackcar.jpg)"
           >
             <div class="card-text">
               <h2>Mission</h2>
@@ -142,13 +151,15 @@
         <div class="col-md-9">
           <owl-carousel-o [options]="customOptions">
             <ng-template carouselSlide>
-              <div
+              <a
+                routerLink="/nano-ceramic"
                 class="my-carousel-slide-item text-black"
-                style="
-                  background-color: antiquewhite;
-                  background-image: url(/imgs/prod1.png);
-                "
               >
+                <img
+                  src="./imgs/self-Healing.png"
+                  alt="self-Healing"
+                  class="prod"
+                />
                 <div class="my-carousel-slide-content">
                   <h5>Nano graphine</h5>
                   <p class="fs-mini mb-0">
@@ -156,16 +167,11 @@
                     Numquam quia modi, hic in rerum exercitationem!
                   </p>
                 </div>
-              </div>
+              </a>
             </ng-template>
             <ng-template carouselSlide>
-              <div
-                class="my-carousel-slide-item"
-                style="
-                  background-color: rgb(162, 130, 87);
-                  background-image: url(/imgs/1-removebg-preview.png);
-                "
-              >
+              <a routerLink="/graphene" class="my-carousel-slide-item">
+                <img src="./imgs/GRAPHNE.png" alt="GRAPHNE" class="prod" />
                 <div class="my-carousel-slide-content">
                   <h5>Nano Ceramic</h5>
                   <p class="fs-mini mb-0">
@@ -173,16 +179,11 @@
                     Numquam quia modi, hic in rerum exercitationem!
                   </p>
                 </div>
-              </div>
+              </a>
             </ng-template>
             <ng-template carouselSlide>
-              <div
-                class="my-carousel-slide-item"
-                style="
-                  background-color: rgb(203, 137, 50);
-                  background-image: url(/imgs/2-removebg-preview.png);
-                "
-              >
+              <a routerLink="/protection-film" class="my-carousel-slide-item">
+                <img src="./imgs/pro-gard.png" alt="pro-gard" class="prod" />
                 <div class="my-carousel-slide-content">
                   <h5>Protection Film</h5>
                   <p class="fs-mini mb-0">
@@ -190,75 +191,39 @@
                     Numquam quia modi, hic in rerum exercitationem!
                   </p>
                 </div>
-              </div>
+              </a>
             </ng-template>
             <ng-template carouselSlide>
-              <div
-                class="my-carousel-slide-item text-black"
-                style="
-                  background-color: rgb(241, 224, 202);
-                  background-image: url(/imgs/3-removebg-preview.png);
-                "
-              >
+              <a routerLink="/insulation" class="my-carousel-slide-item">
+                <img
+                  src="./imgs/shield-heat-block.png"
+                  alt="shield-heat-block"
+                  class="prod"
+                />
                 <div class="my-carousel-slide-content">
-                  <h5>Wrapping</h5>
+                  <h5>Protection Film</h5>
                   <p class="fs-mini mb-0">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Numquam quia modi, hic in rerum exercitationem!
                   </p>
                 </div>
-              </div>
+              </a>
             </ng-template>
             <ng-template carouselSlide>
-              <div
-                class="my-carousel-slide-item"
-                style="
-                  background-color: rgb(84, 67, 46);
-                  background-image: url(/imgs/4-removebg-preview.png);
-                "
-              >
+              <a routerLink="/auto-care" class="my-carousel-slide-item">
+                <img
+                  src="./imgs/gloss-master.png"
+                  alt="gloss-master"
+                  class="prod"
+                />
                 <div class="my-carousel-slide-content">
-                  <h5>Dipping</h5>
+                  <h5>Protection Film</h5>
                   <p class="fs-mini mb-0">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Numquam quia modi, hic in rerum exercitationem!
                   </p>
                 </div>
-              </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div
-                class="my-carousel-slide-item"
-                style="
-                  background-color: rgb(84, 67, 46);
-                  background-image: url(/imgs/5-removebg-preview.png);
-                "
-              >
-                <div class="my-carousel-slide-content">
-                  <h5>Auto Care</h5>
-                  <p class="fs-mini mb-0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam quia modi, hic in rerum exercitationem!
-                  </p>
-                </div>
-              </div>
-            </ng-template>
-            <ng-template carouselSlide>
-              <div
-                class="my-carousel-slide-item"
-                style="
-                  background-color: rgb(84, 67, 46);
-                  background-image: url(/imgs/7-removebg-preview.png);
-                "
-              >
-                <div class="my-carousel-slide-content">
-                  <h5>Thermal insulation</h5>
-                  <p class="fs-mini mb-0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam quia modi, hic in rerum exercitationem!
-                  </p>
-                </div>
-              </div>
+              </a>
             </ng-template>
           </owl-carousel-o>
         </div>

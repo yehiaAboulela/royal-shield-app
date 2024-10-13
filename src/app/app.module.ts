@@ -44,6 +44,7 @@ import { AutoCareComponent } from './components/gallery/auto-care/auto-care.comp
 import { DippingComponent } from './components/gallery/dipping/dipping.component';
 import { WrappingComponent } from './components/gallery/wrapping/wrapping.component';
 import { InsulationComponent } from './components/gallery/insulation/insulation.component';
+import { RoyalNanoComponent } from './components/royal-nano/royal-nano.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { InsulationComponent } from './components/gallery/insulation/insulation.
     DippingComponent,
     WrappingComponent,
     InsulationComponent,
+    RoyalNanoComponent,
   ],
   imports: [
     BrowserModule,

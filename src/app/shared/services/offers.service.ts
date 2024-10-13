@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,34 +8,39 @@ import { Observable } from 'rxjs';
 export class OffersService {
   constructor(private http: HttpClient) {}
 
-  getAllOffers(): Observable<any> {
-    return this.http.get('https://royal-shield.up.railway.app/getOffers');
+  private apiUrl = 'https://royal-shield.up.railway.app';
+  // private apiUrl = 'http://localhost:3000';
+
+  getToken(): string | null {
+    return sessionStorage.getItem('authToken');
   }
+  getAllOffers(): Observable<any> {
+    const token = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.apiUrl}/getOffers`, {
+      headers,
+    });
+  }
+
   checkOffer(id: string): Observable<any> {
-    return this.http.post('https://royal-shield.up.railway.app/offerCheck', {
+    return this.http.post(`${this.apiUrl}/offerCheck`, {
       Id: id,
     });
   }
   uncheckOffer(id: string): Observable<any> {
-    return this.http.post('https://royal-shield.up.railway.app/offerUnCheck', {
+    return this.http.post(`${this.apiUrl}/offerUnCheck`, {
       Id: id,
     });
   }
   deleteOffers(): Observable<any> {
-    return this.http.delete('https://royal-shield.up.railway.app/deleteOffers');
+    return this.http.delete(`${this.apiUrl}/deleteOffers`);
   }
 
   sendRequest(requestBody: any): Observable<any> {
-    return this.http.post(
-      'https://royal-shield.up.railway.app/sendOffer',
-      requestBody
-    );
+    return this.http.post(`${this.apiUrl}/sendOffer`, requestBody);
   }
 
   sendEmail(requestBody: any): Observable<any> {
-    return this.http.post(
-      'https://royal-shield.up.railway.app/send-email',
-      requestBody
-    );
+    return this.http.post(`${this.apiUrl}/send-email`, requestBody);
   }
 }

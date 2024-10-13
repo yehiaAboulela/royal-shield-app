@@ -1,8 +1,11 @@
 nav {
   /* border-bottom: 0.3px solid #b1b1b1; */
-  padding-block: 10px;
+  padding-block: 0px;
 }
 .navbar-brand img {
   width: 70px;
   /* scale: 1.4; */
+}
+.navbar-brand {
+  padding-block: 0;
 }

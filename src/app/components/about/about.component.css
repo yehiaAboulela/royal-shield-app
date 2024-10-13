@@ -1,11 +1,3 @@
-.intro-img {
-  display: flex;
-  justify-content: start;
-  align-items: start;
-}
-.intro-img img {
-  width: 100%;
-}
 .my-card i {
   font-size: 120px;
   margin-bottom: 20px;

@@ -22,6 +22,7 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { adminLoginGuard } from './shared/guards/admin-login.guard';
 import { warrantyGuard } from './shared/guards/warranty.guard';
 import { InsulationComponent } from './components/gallery/insulation/insulation.component';
+import { RoyalNanoComponent } from './components/royal-nano/royal-nano.component';
 
 const routes: Routes = [
   {
@@ -46,17 +47,17 @@ const routes: Routes = [
         title: 'Royal Shield | nano ceramic',
       },
       {
-        path: 'graphine',
+        path: 'graphene',
         component: GraphineComponent,
-        title: 'Royal Shield | graphine',
+        title: 'Royal Shield | graphene',
       },
       {
-        path: 'auto care',
+        path: 'auto-care',
         component: AutoCareComponent,
         title: 'Royal Shield | auto care',
       },
       {
-        path: 'protection film',
+        path: 'protection-film',
         component: PaintProtectionComponent,
         title: 'Royal Shield | protection film',
       },
@@ -83,11 +84,14 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'admin',
+    path: 'admin__',
+    component: AdminLoginComponent,
+  },
+  {
+    path: 'admin__',
     component: AdminLayoutComponent,
     children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: AdminLoginComponent },
+      { path: '', redirectTo: 'serials', pathMatch: 'full' },
       {
         path: 'serials',
         component: SerialsComponent,
@@ -101,6 +105,11 @@ const routes: Routes = [
       {
         path: 'activated-warrantys',
         component: ActivatedWarrantysComponent,
+        canActivate: [adminLoginGuard],
+      },
+      {
+        path: 'royal-nano',
+        component: RoyalNanoComponent,
         canActivate: [adminLoginGuard],
       },
     ],

@@ -11,7 +11,7 @@ import { TableUtil } from '../../tableUtil';
 export class ActivatedWarrantysComponent implements OnInit {
   constructor(private SerialService: SerialService) {}
   searchTerm: string = '';
-  noWarranty: boolean = false;
+
   ActivatedWarrantys: ActivatedWarrantys[] = [];
   fullScreenImg: string = '';
 
@@ -23,7 +23,6 @@ export class ActivatedWarrantysComponent implements OnInit {
       },
       error: (err) => {
         console.log(err.error);
-        this.noWarranty = true;
       },
     });
   }

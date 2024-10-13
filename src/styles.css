@@ -108,17 +108,14 @@ button {
   justify-content: center;
 }
 .contact-cards .img img {
-  width: 100%;
+  width: 105%;
+  height: 110%;
   object-fit: cover;
 }
 .contact-cards .text {
   width: 50%;
 }
 
-.contact-cards .product-card:hover {
-  background-color: white;
-  color: black;
-}
 @media (max-width: 991.98px) {
   .contact-cards .product-card h2 {
     font-size: 25px;
@@ -135,5 +132,7 @@ button {
   }
   .contact-cards .product-card {
     flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 25px;
   }
 }

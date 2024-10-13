@@ -1,0 +1,54 @@
+.color-input {
+  margin-bottom: 15px;
+}
+.color-input input {
+  /* width: 100px; */
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.save-img-btn {
+  border-radius: 10px;
+}
+
+/* General styles for the color input */
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  padding: 2px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style the color swatch */
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Hover and focus effects */
+input[type="color"]:hover {
+  border-color: #888;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+input[type="color"]:focus {
+  outline: none;
+  border-color: #00e0ff;
+  box-shadow: 0 0 8px rgba(0, 224, 255, 0.5);
+}

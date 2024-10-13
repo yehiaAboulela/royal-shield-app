@@ -25,10 +25,9 @@ export class AdminLoginComponent {
     });
   }
 
-  // Login method
   login() {
     if (this.loginForm.invalid) {
-      this.toaster.error('Enter valid inouts');
+      this.toaster.error('Enter valid inputs');
       return;
     }
 
@@ -36,10 +35,10 @@ export class AdminLoginComponent {
 
     this.AdminLoginService.login(name, password).subscribe({
       next: (response) => {
-        console.log(response);
+        this.AdminLoginService.isAdminLoggedIn.set(true);
         const token = response.token;
-        this.AdminLoginService.setToken(token); // Store the token in localStorage
-        this.router.navigate(['/admin/serials']); // Redirect to dashboard on success
+        this.AdminLoginService.setToken(token);
+        this.router.navigate(['/admin/serials']);
       },
       error: (err) => {
         this.toaster.error('Unauthorized User');

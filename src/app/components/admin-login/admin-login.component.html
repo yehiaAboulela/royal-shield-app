@@ -11,16 +11,7 @@
           formControlName="name"
           placeholder="Enter your Name"
         />
-        <!-- Validation Error for Name -->
-        <!-- <div *ngIf="f['name'].touched && f['name'].invalid" class="text-danger">
-          <small *ngIf="f['name'].errors?.required">Name is required.</small>
-          <small *ngIf="f['name'].errors?.minlength"
-            >Name must be at least 3 characters long.</small
-          >
-        </div> -->
       </div>
-
-      <!-- Password Input -->
       <div class="mb-3">
         <label for="password">Password</label>
         <input
@@ -30,27 +21,8 @@
           formControlName="password"
           placeholder="Enter your password"
         />
-        <!-- Validation Error for Password -->
-        <!-- <div
-          *ngIf="f['password'].touched && f['password'].invalid"
-          class="text-danger"
-        >
-          <small *ngIf="f['password'].errors?.required"
-            >password is required.</small
-          >
-          <small *ngIf="f['password'].errors?.minlength"
-            >Name must be at least 3 characters long.</small
-          >
-        </div> -->
       </div>
-
-      <!-- Submit Button -->
       <button type="submit" class="btn btn-primary">Login</button>
-
-      <!-- Error Message -->
-      <!-- <div *ngIf="errorMessage" class="text-danger mt-3">
-        {{ errorMessage }}
-      </div> -->
     </form>
   </div>
 </section>
