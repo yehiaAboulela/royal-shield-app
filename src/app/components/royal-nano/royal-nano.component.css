@@ -1,0 +1,16 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+nav .btn {
+  font-weight: 500;
+}
+
+nav .btn:hover {
+  background-color: #eee;
+}

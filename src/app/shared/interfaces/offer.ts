@@ -8,4 +8,5 @@ export interface Offer {
   activated: boolean;
   Id: string;
   __v: number;
+  company: string;
 }

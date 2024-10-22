@@ -16,6 +16,8 @@ export class RequestsComponent implements OnInit {
   mailTo: string = `mailto:`;
   offers: Offer[] = [];
   warningMsg: boolean = false;
+  checkBtn: boolean = true;
+
   ngOnInit(): void {
     this.OffersService.getAllOffers().subscribe({
       next: (res) => {

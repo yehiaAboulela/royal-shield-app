@@ -79,11 +79,11 @@ export class WarrantyComponent implements OnDestroy, OnInit {
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    console.log(file);
     this.myFile = file;
   }
   loadImage(): void {
-    const imagePath = './imgs/logo-transparent.png'; // Adjust the path as needed
+    const imagePath =
+      'https://tools.royalshieldworld.com/public/imgs/logo-transparent.png'; // Adjust the path as needed
 
     this.http.get(imagePath, { responseType: 'arraybuffer' }).subscribe({
       next: (data: ArrayBuffer) => {
@@ -129,7 +129,6 @@ export class WarrantyComponent implements OnDestroy, OnInit {
       if (this.myFile) {
         formData.append('image', this.myFile, this.myFile.name);
       }
-      console.log(formData);
 
       this.SerialService.warrantyActivation(formData).subscribe({
         next: (res) => {
@@ -143,7 +142,7 @@ export class WarrantyComponent implements OnDestroy, OnInit {
             this.success = true;
             this.confettiService.launchConfetti();
             this.activation = res.activation;
-            this.generatePdf();
+            // this.generatePdf();
           }
         },
         error: (err) => {

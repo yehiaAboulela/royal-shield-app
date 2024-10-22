@@ -48,3 +48,10 @@ td {
 td {
   vertical-align: middle;
 }
+
+.msg-body p {
+  max-height: 100px;
+
+  /* background-color: blue; */
+  overflow: auto;
+}

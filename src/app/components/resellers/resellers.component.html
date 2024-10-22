@@ -6,191 +6,47 @@
 
 <section class="py-5">
   <div class="container px-md-5">
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div
-        class="col-md-6 d-flex align-items-center justify-content-lg-end order-1 order-lg-0"
+    <div>
+      <select
+        class="select"
+        aria-label="Default select example"
+        [(ngModel)]="code"
       >
-        <div class="partner-text">
-          <h3>Auto Guard</h3>
-          <p class="mb-4 text-light">
-            Ultimate defense for your car's exterior and interior, providing
-            long-lasting protection from scratches, weather, and wear.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-start">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand1.png" alt="" />
-        </div>
-      </div>
+        <!-- <option selected>Filter by country</option> -->
+        <option value="" disabled selected>Filter by country</option>
+        @for (reseller of resellers; track $index) {
+        <option [value]="reseller.countryCode">{{ reseller.country }}</option>
+        }
+      </select>
+      <button class="reset-btn ms-2" (click)="code = ''">Reset</button>
     </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-end">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand7.png" alt="" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="partner-text">
-          <h3>Shield Max</h3>
-          <p class="mb-4 text-light">
-            Advanced coating technology to protect your vehicle from harsh
-            elements, ensuring a sleek finish and superior durability
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div
-        class="col-md-6 d-flex align-items-center justify-content-lg-end order-1 order-lg-0"
-      >
-        <div class="partner-text">
-          <h3>Gloss Guard</h3>
-          <p class="mb-4 text-light">
-            A premium line of car protection products that maintains the sheen
-            and vibrancy of your vehicle’s paintwork while resisting
-            environmental damage.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-start">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand2.png" alt="" />
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-end">
-        <div
-          class="partners-logo-card-bg"
-          style="background-color: rgb(37, 36, 36)"
+    <div class="row g-3">
+      @for (reseller of resellers | reseller: code; track $index) {
+      <div class="col-lg-6">
+        <a
+          routerLink="/contact-us"
+          [fragment]="reseller.fragment"
+          class="reseller-card"
+          [title]="'Send message to ' + reseller.name"
         >
-          <img src="./imgs/royal--nano.png" alt="logo" />
-        </div>
+          <div class="reseller-flag">
+            <img [src]="reseller.flagPath" [alt]="reseller.name" />
+          </div>
+          <div class="reseller-content">
+            <h3 class="reseller-name">{{ reseller.name }}</h3>
+            <p class="reseller-description">
+              {{ reseller.description }}
+            </p>
+          </div>
+        </a>
       </div>
-      <div class="col-md-6">
-        <div class="partner-text">
-          <h3>Royal nano</h3>
-          <p class="mb-4 text-light">
-            The only one in Egypt that protects against greasy towels and the
-            causes of staleness from traditional washing tools, with a 6-year
-            warranty and a long lifespan.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!--  -->
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div
-        class="col-md-6 d-flex align-items-center justify-content-lg-end order-1 order-lg-0"
-      >
-        <div class="partner-text">
-          <h3>Al Arabia</h3>
-          <p class="mb-4 text-light">
-            Al Arabia is one of the leading distributors of Royal Shield
-            products in the Middle East, providing advanced car protection
-            solutions to a wide range of clients. With a focus on quality and
-            reliability, they ensure your vehicle receives the best care.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-start">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand5.png" alt="" />
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-end">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand8.png" alt="" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="partner-text">
-          <h3>Arcadia</h3>
-          <p class="mb-4 text-light">
-            Arcadia has been a trusted reseller of Royal Shield products,
-            offering comprehensive protection solutions for automotive
-            exteriors. Their dedication to customer satisfaction has earned them
-            a strong reputation in Europe.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div
-        class="col-md-6 d-flex align-items-center justify-content-lg-end order-1 order-lg-0"
-      >
-        <div class="partner-text">
-          <h3>Safe Guard</h3>
-          <p class="mb-4 text-light">
-            Safe Guard provides premium car protection products from Royal
-            Shield across North America, ensuring vehicles are protected from
-            harsh weather and road conditions. Their expertise in vehicle care
-            is unmatched.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-start">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand6.png" alt="" />
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-end">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand3.png" alt="" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="partner-text">
-          <h3>Slysiom</h3>
-          <p class="mb-4 text-light">
-            Slysiom has partnered with Royal Shield to deliver top-tier
-            automotive protection solutions in the Asia-Pacific region. They
-            provide innovative products to ensure vehicles are shielded from
-            damage and wear.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center mb-5 row-gap-2">
-      <!-- partner -->
-      <div
-        class="col-md-6 d-flex align-items-center justify-content-lg-end order-1 order-lg-0"
-      >
-        <div class="partner-text">
-          <h3>Vectra</h3>
-          <p class="mb-4 text-light">
-            Vectra is a key partner of Royal Shield, offering advanced
-            protection products for automotive enthusiasts in South America.
-            Their commitment to excellence has made them a top choice for
-            vehicle protection.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-lg-start">
-        <div class="partners-logo-card">
-          <img src="./imgs/brand9.png" alt="" />
-        </div>
-      </div>
+      }
     </div>
   </div>
 </section>
 
 <section class="pt-5 text-center">
-  <p class="mx-auto" style="max-width: 800px">
+  <p class="mx-auto p-2" style="max-width: 800px">
     "Become a partner with Royal Shield and join us in delivering top-quality
     car protection products that redefine excellence."
   </p>

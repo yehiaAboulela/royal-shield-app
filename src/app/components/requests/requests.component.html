@@ -18,6 +18,7 @@
           <th scope="col">Email</th>
           <th scope="col">Phone</th>
           <th scope="col">Message</th>
+          <th scope="col">Company</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -29,17 +30,20 @@
             <a [href]="mailTo + offer.email">{{ offer.email }}</a>
           </td>
           <td>{{ offer.phone }}</td>
-          <td>{{ offer.msg }}</td>
-          <td>
+          <td class="msg-body">
+            <p>{{ offer.msg }}</p>
+          </td>
+          <td>{{ offer.company }}</td>
+          <td style="min-width: 10px">
+            @if (!offer.checked) {
             <button class="btn btn-primary" (click)="checkOffer(offer.Id)">
               <i class="fa fa-check"></i>
             </button>
-            <button
-              class="btn btn-success ms-2"
-              (click)="uncheckOffer(offer.Id)"
-            >
+            } @if (offer.checked) {
+            <button class="btn btn-success" (click)="uncheckOffer(offer.Id)">
               <i class="fa fa-xmark"></i>
             </button>
+            }
           </td>
         </tr>
         }

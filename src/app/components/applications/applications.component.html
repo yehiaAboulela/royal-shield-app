@@ -1,0 +1,49 @@
+<section>
+  <div class="container">
+    <div class="mt-5"></div>
+    <table
+      class="table table-striped table-bordered table-hover mt-2"
+      id="applications"
+    >
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">CoverLetter</th>
+          <th scope="col">Birthdate</th>
+          <th scope="col">Address</th>
+          <th scope="col">Posetion</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (applicant of applicants; track $index) {
+
+        <tr (click)="downloadCV(applicant._id, applicant.name)">
+          <td>{{ applicant.name }}</td>
+          <td>{{ applicant.email }}</td>
+          <td>{{ applicant.phone }}</td>
+          <td>{{ applicant.coverLetter }}</td>
+          <td>{{ applicant.birthdate }}</td>
+          <td>{{ applicant.address }}</td>
+          <td>{{ applicant.position }}</td>
+        </tr>
+
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- <div class="msg" [ngClass]="{ active: warningMsg }">
+    <div class="msg-card">
+      <p>Are you sure you want to delete all requests?</p>
+      <div class="d-flex align-items-center justify-content-end">
+        <button class="btn btn-primary" (click)="deleteAll()">Yes</button>
+        <button class="btn btn-success ms-3" (click)="warningMsg = false">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+   -->

@@ -45,6 +45,9 @@ import { DippingComponent } from './components/gallery/dipping/dipping.component
 import { WrappingComponent } from './components/gallery/wrapping/wrapping.component';
 import { InsulationComponent } from './components/gallery/insulation/insulation.component';
 import { RoyalNanoComponent } from './components/royal-nano/royal-nano.component';
+import { ResellerPipe } from './shared/pipes/reseller.pipe';
+import { ApplicationsComponent } from './components/applications/applications.component';
+import { AppointmentsComponent } from './components/appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +82,9 @@ import { RoyalNanoComponent } from './components/royal-nano/royal-nano.component
     WrappingComponent,
     InsulationComponent,
     RoyalNanoComponent,
+    ResellerPipe,
+    ApplicationsComponent,
+    AppointmentsComponent,
   ],
   imports: [
     BrowserModule,

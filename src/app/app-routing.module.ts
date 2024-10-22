@@ -84,11 +84,11 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'admin__',
+    path: 'admin',
     component: AdminLoginComponent,
   },
   {
-    path: 'admin__',
+    path: 'admin',
     component: AdminLayoutComponent,
     children: [
       { path: '', redirectTo: 'serials', pathMatch: 'full' },
