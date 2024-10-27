@@ -7,12 +7,15 @@
       <button class="btn" (click)="activaTap = 'applications'">
         Applications
       </button>
+      <button class="btn" (click)="activaTap = 'blogs'">Blogs</button>
     </nav>
 
     @if(activaTap === 'appintments'){
     <app-appointments></app-appointments>
     }@else if (activaTap === 'applications') {
     <app-applications></app-applications>
+    }@else if(activaTap === 'blogs'){
+    <app-blogs></app-blogs>
     }
   </div>
 </section>

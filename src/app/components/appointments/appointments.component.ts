@@ -15,7 +15,6 @@ export class AppointmentsComponent {
     this.rn.getAppointmets().subscribe({
       next: (res) => {
         this.appointments = res;
-        console.log(res);
       },
     });
   }

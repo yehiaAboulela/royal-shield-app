@@ -11,7 +11,7 @@ export class AdminLoginService {
 
   constructor(private http: HttpClient) {}
 
-  isAdminLoggedIn = signal(false);
+  isAdminLoggedIn = signal(true);
   getAdminStatus(): boolean {
     return this.isAdminLoggedIn();
   }

@@ -1,0 +1,218 @@
+<!-- blogs.component.html -->
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Add New Blog (English & Arabic)</h2>
+
+  <!-- Tabs for English and Arabic -->
+  <ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#english"
+        >English Version</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#arabic">Arabic Version</a>
+    </li>
+  </ul>
+
+  <div class="tab-content mb-4">
+    <!-- English Version -->
+    <div id="english" class="tab-pane fade show active">
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-4">
+          <label for="label-en" class="form-label">Label</label>
+          <input
+            type="text"
+            id="label-en"
+            class="form-control"
+            formControlName="label_en"
+            placeholder="Enter blog label in English"
+          />
+        </div>
+
+        <div class="form-group mb-4">
+          <label for="heading-en" class="form-label">Heading</label>
+          <input
+            type="text"
+            id="heading-en"
+            class="form-control"
+            formControlName="heading_en"
+            placeholder="Enter blog heading in English"
+          />
+        </div>
+
+        <div class="form-group mb-4">
+          <label for="subHeading-en" class="form-label">Sub-Heading</label>
+          <input
+            type="text"
+            id="subHeading-en"
+            class="form-control"
+            formControlName="subHeading_en"
+            placeholder="Enter blog sub-heading in English"
+          />
+        </div>
+
+        <div class="mb-4">
+          <h5>Points</h5>
+          <div formArrayName="points">
+            <div
+              *ngFor="let point of points.controls; let i = index"
+              [formGroupName]="i"
+              class="mb-3 border p-3 rounded shadow-sm"
+            >
+              <div class="form-group">
+                <label for="head-en-{{ i }}" class="form-label"
+                  >Point Heading</label
+                >
+                <input
+                  type="text"
+                  id="head-en-{{ i }}"
+                  class="form-control"
+                  formControlName="head_en"
+                  placeholder="Enter point heading in English"
+                />
+              </div>
+              <div class="form-group">
+                <label for="body-en-{{ i }}" class="form-label"
+                  >Point Body</label
+                >
+                <textarea
+                  id="body-en-{{ i }}"
+                  class="form-control"
+                  formControlName="body_en"
+                  placeholder="Enter point body in English"
+                ></textarea>
+              </div>
+              <button
+                type="button"
+                class="btn btn-danger mt-2"
+                (click)="removePoint(i)"
+              >
+                Remove Point
+              </button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary" (click)="addPoint()">
+            Add Point
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Arabic Version -->
+    <div id="arabic" class="tab-pane fade">
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" dir="rtl">
+        <div class="form-group mb-4">
+          <label for="label-ar" class="form-label"> التسمية </label>
+          <input
+            type="text"
+            id="label-ar"
+            class="form-control"
+            formControlName="label_ar"
+            placeholder="أدخل العنوان باللغة العربية"
+          />
+        </div>
+
+        <div class="form-group mb-4">
+          <label for="heading-ar" class="form-label">العنوان</label>
+          <input
+            type="text"
+            id="heading-ar"
+            class="form-control"
+            formControlName="heading_ar"
+            placeholder="أدخل العنوان باللغة العربية"
+          />
+        </div>
+
+        <div class="form-group mb-4">
+          <label for="subHeading-ar" class="form-label">العنوان الفرعي</label>
+          <input
+            type="text"
+            id="subHeading-ar"
+            class="form-control"
+            formControlName="subHeading_ar"
+            placeholder="أدخل العنوان الفرعي باللغة العربية"
+          />
+        </div>
+
+        <div class="mb-4">
+          <h5>النقاط</h5>
+          <div formArrayName="points">
+            <div
+              *ngFor="let point of points.controls; let i = index"
+              [formGroupName]="i"
+              class="mb-3 border p-3 rounded shadow-sm"
+            >
+              <div class="form-group">
+                <label for="head-ar-{{ i }}" class="form-label"
+                  >عنوان النقطة</label
+                >
+                <input
+                  type="text"
+                  id="head-ar-{{ i }}"
+                  class="form-control"
+                  formControlName="head_ar"
+                  placeholder="أدخل عنوان النقطة باللغة العربية"
+                />
+              </div>
+              <div class="form-group">
+                <label for="body-ar-{{ i }}" class="form-label"
+                  >محتوى النقطة</label
+                >
+                <textarea
+                  id="body-ar-{{ i }}"
+                  class="form-control"
+                  formControlName="body_ar"
+                  placeholder="أدخل محتوى النقطة باللغة العربية"
+                ></textarea>
+              </div>
+              <button
+                type="button"
+                class="btn btn-danger mt-2"
+                (click)="removePoint(i)"
+              >
+                إزالة النقطة
+              </button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary" (click)="addPoint()">
+            إضافة نقطة
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <h4 class="mt-4">Additional Information</h4>
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-4">
+      <label for="date" class="form-label">Date</label>
+      <input
+        type="date"
+        id="date"
+        class="form-control"
+        formControlName="date"
+      />
+    </div>
+
+    <div class="form-group mb-4">
+      <br />
+      <label for="img" class="form-label">Image URL</label>
+      <input
+        type="text"
+        id="img"
+        class="form-control"
+        formControlName="img"
+        placeholder="Enter image URL"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn btn-primary mt-3 w-100"
+      [disabled]="!blogForm.valid"
+    >
+      Submit Blog
+    </button>
+  </form>
+</div>

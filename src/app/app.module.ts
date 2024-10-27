@@ -48,6 +48,7 @@ import { RoyalNanoComponent } from './components/royal-nano/royal-nano.component
 import { ResellerPipe } from './shared/pipes/reseller.pipe';
 import { ApplicationsComponent } from './components/applications/applications.component';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { AppointmentsComponent } from './components/appointments/appointments.co
     ResellerPipe,
     ApplicationsComponent,
     AppointmentsComponent,
+    BlogsComponent,
   ],
   imports: [
     BrowserModule,
