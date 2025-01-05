@@ -9,7 +9,7 @@ import { Blog } from '../interfaces/blog';
 export class BlogService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://royal-shield.up.railway.app';
+  private apiUrl = 'https://royal-shield-be-production.up.railway.app';
   // private apiUrl = 'http://localhost:3000';
 
   getToken(): string | null {

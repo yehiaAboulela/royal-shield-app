@@ -43,7 +43,7 @@ export class ActivatedWarrantysComponent implements OnInit {
   }
 
   getImgPath(path: string): string {
-    return `https://royal-shield.up.railway.app/${path}`;
+    return `https://royal-shield-be-production.up.railway.app/${path}`;
   }
 
   openImgTap(src: string) {

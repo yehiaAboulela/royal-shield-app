@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AdminLoginService {
-  private apiUrl = 'https://royal-shield.up.railway.app/admin';
+  private apiUrl = 'https://royal-shield-be-production.up.railway.app/admin';
   // private apiUrl = 'http://localhost:3000/admin';
 
   constructor(private http: HttpClient) {}
