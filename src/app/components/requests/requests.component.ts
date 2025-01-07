@@ -52,6 +52,14 @@ export class RequestsComponent implements OnInit {
     });
   }
 
+  deleteOffer(id: string): void {
+    this.OffersService.deleteOffer(id).subscribe({
+      next: (res) => {
+        this.offers = res.remainingActivations.reverse();
+      },
+    });
+  }
+
   exportData(): void {
     TableUtil.exportTableToExcel('requests', 'Site-Messages');
   }

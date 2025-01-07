@@ -5,10 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AdminLoginService {
   private apiUrl = 'https://royal-shield-be-production.up.railway.app/admin';
   // private apiUrl = 'http://localhost:3000/admin';
-
+  
   constructor(private http: HttpClient) {}
 
   isAdminLoggedIn = signal(true);
@@ -39,7 +40,6 @@ export class AdminLoginService {
   getDashboardData(): Observable<any> {
     const token = this.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
     return this.http.get(`${this.apiUrl}/viewSerials`, { headers });
   }
 }
