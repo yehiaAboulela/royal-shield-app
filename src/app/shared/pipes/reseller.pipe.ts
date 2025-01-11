@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Reseller } from '../interfaces/reseller';
 
 @Pipe({
-  name: 'reseller',
+    name: 'reseller',
+    standalone: false
 })
 export class ResellerPipe implements PipeTransform {
   transform(resellers: Reseller[], resellerCode: string): Reseller[] {

@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ActivatedWarrantys } from '../interfaces/activated-warrantys';
 
 @Pipe({
-  name: 'activatedSearch',
+    name: 'activatedSearch',
+    standalone: false
 })
 export class ActivatedSearchPipe implements PipeTransform {
   transform(

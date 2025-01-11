@@ -5,9 +5,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-warranty-check',
-  templateUrl: './warranty-check.component.html',
-  styleUrl: './warranty-check.component.css',
+    selector: 'app-warranty-check',
+    templateUrl: './warranty-check.component.html',
+    styleUrl: './warranty-check.component.css',
+    standalone: false
 })
 export class WarrantyCheckComponent {
   constructor(

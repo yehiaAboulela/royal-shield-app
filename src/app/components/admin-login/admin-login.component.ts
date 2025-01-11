@@ -5,9 +5,10 @@ import { Router } from '@angular/router';
 import { AdminLoginService } from '../../shared/services/admin-login.service';
 
 @Component({
-  selector: 'app-admin-login',
-  templateUrl: './admin-login.component.html',
-  styleUrl: './admin-login.component.css',
+    selector: 'app-admin-login',
+    templateUrl: './admin-login.component.html',
+    styleUrl: './admin-login.component.css',
+    standalone: false
 })
 export class AdminLoginComponent {
   loginForm: FormGroup;

@@ -3,9 +3,10 @@ import { ResellersService } from '../../shared/services/resellers.service';
 import { Reseller } from '../../shared/interfaces/reseller';
 
 @Component({
-  selector: 'app-resellers',
-  templateUrl: './resellers.component.html',
-  styleUrl: './resellers.component.css',
+    selector: 'app-resellers',
+    templateUrl: './resellers.component.html',
+    styleUrl: './resellers.component.css',
+    standalone: false
 })
 export class ResellersComponent {
   constructor(private ResellersService: ResellersService) {}

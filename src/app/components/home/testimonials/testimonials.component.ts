@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
-  selector: 'app-testimonials',
-  templateUrl: './testimonials.component.html',
-  styleUrl: './testimonials.component.css',
+    selector: 'app-testimonials',
+    templateUrl: './testimonials.component.html',
+    styleUrl: './testimonials.component.css',
+    standalone: false
 })
 export class TestimonialsComponent {
   customOptions: OwlOptions = {

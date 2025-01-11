@@ -12,9 +12,10 @@ import { HttpClient } from '@angular/common/http';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
-  selector: 'app-warranty',
-  templateUrl: './warranty.component.html',
-  styleUrl: './warranty.component.css',
+    selector: 'app-warranty',
+    templateUrl: './warranty.component.html',
+    styleUrl: './warranty.component.css',
+    standalone: false
 })
 export class WarrantyComponent implements OnDestroy, OnInit {
   constructor(

@@ -2,9 +2,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import html2canvas from 'html2canvas';
 
 @Component({
-  selector: 'app-wrapping',
-  templateUrl: './wrapping.component.html',
-  styleUrl: './wrapping.component.css',
+    selector: 'app-wrapping',
+    templateUrl: './wrapping.component.html',
+    styleUrl: './wrapping.component.css',
+    standalone: false
 })
 export class WrappingComponent {
   @ViewChild('screenshotDiv') screenshotDiv!: ElementRef;

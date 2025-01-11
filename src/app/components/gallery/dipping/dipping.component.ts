@@ -2,9 +2,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import html2canvas from 'html2canvas';
 
 @Component({
-  selector: 'app-dipping',
-  templateUrl: './dipping.component.html',
-  styleUrl: './dipping.component.css',
+    selector: 'app-dipping',
+    templateUrl: './dipping.component.html',
+    styleUrl: './dipping.component.css',
+    standalone: false
 })
 export class DippingComponent {
   @ViewChild('screenshotDiv') screenshotDiv!: ElementRef;

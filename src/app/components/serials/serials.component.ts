@@ -1,66 +1,97 @@
-import { AdminLoginService } from './../../shared/services/admin-login.service';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Serial } from './../../shared/interfaces/serial';
 import { SerialService } from './../../shared/services/serials.service';
-import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Serial } from './../../shared/interfaces/serial';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 import { TableUtil } from '../../tableUtil';
-
 @Component({
   selector: 'app-serials',
   templateUrl: './serials.component.html',
-  styleUrl: './serials.component.css',
+  styleUrls: ['./serials.component.css'],
+  standalone: false,
 })
-export class SerialsComponent implements OnInit {
+export class SerialsComponent implements OnInit, AfterViewInit {
+  // Columns to display in the table
+  displayedColumns: string[] = [
+    'serialNumber',
+    'numOfChecks',
+    'activated',
+    'action',
+  ];
+  // Data source for the table (mat-table)
+  dataSource = new MatTableDataSource<Serial>([]);
+
+  // Form for serials
+  serialForm: FormGroup;
+
+  // Pagination related properties
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort; // Add this line
   constructor(
     private SerialService: SerialService,
     private FormBuilder: FormBuilder,
-    private toastr: ToastrService,
-    private AdminLoginService: AdminLoginService
-  ) {}
-
-  serials: Serial[] = [];
+    private toastr: ToastrService
+  ) {
+    // Initializing the serialForm
+    this.serialForm = this.FormBuilder.group({
+      serialNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[A-Za-z]{3}-[A-Za-z0-9]{6}$'),
+        ],
+      ],
+    });
+  }
 
   ngOnInit(): void {
+    // Fetch serials on component load
     this.SerialService.getSerials().subscribe({
       next: (res) => {
-        this.serials = res.serials;
+        // Setting the fetched serials in the data source
+        this.dataSource.data = res.serials;
       },
     });
   }
 
-  serialForm: FormGroup = this.FormBuilder.group({
-    serialNumber: [
-      '',
-      [Validators.required, Validators.pattern('^[A-Za-z]{3}-[A-Za-z0-9]{6}$')],
-    ],
-  });
+  ngAfterViewInit(): void {
+    // Assign paginator to dataSource after the view is initialized
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
+  // Method to add a serial using the serialForm
   addSerial(): void {
     if (this.serialForm.valid) {
       this.SerialService.addSerial(this.serialForm.value).subscribe({
         next: (res) => {
-          this.serials = res.serials;
-          this.toastr.success('Added succefully');
+          this.dataSource.data = res.serials; // Update the table data
+          this.toastr.success('Added successfully');
         },
         error: (err) => {
-          this.toastr.warning('Serial Alredy exists in database');
+          this.toastr.warning('Serial Already exists in database');
         },
       });
     } else {
-      this.serialForm.markAllAsTouched();
+      this.serialForm.markAllAsTouched(); // Mark all fields as touched to show validation errors
     }
   }
+
+  // Method to delete a serial
   deleteSerial(serialNum: string): void {
     this.SerialService.deleteSerial(serialNum).subscribe({
       next: (res) => {
         if (res.msg == 'success') {
-          this.serials = res.serial;
+          this.dataSource.data = res.serial; // Update the table data after deletion
         }
       },
     });
   }
 
+  // Export data to Excel (method from TableUtil)
   exportData(): void {
     TableUtil.exportTableToExcel('serials', 'serials');
   }

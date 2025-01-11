@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,8 +9,8 @@ import { Observable } from 'rxjs';
 export class OffersService {
   constructor(private http: HttpClient) {}
 
-  // private apiUrl = 'https://royal-shield-be-production.up.railway.app';
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://royal-shield-be-production.up.railway.app';
+  // private apiUrl = 'http://localhost:3000';
 
   getToken(): string | null {
     return sessionStorage.getItem('authToken');

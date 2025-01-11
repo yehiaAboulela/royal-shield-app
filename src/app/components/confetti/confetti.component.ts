@@ -3,9 +3,10 @@ import confetti from 'canvas-confetti';
 import { ConfettiService } from '../../shared/services/confetti.service';
 
 @Component({
-  selector: 'app-confetti',
-  templateUrl: './confetti.component.html',
-  styleUrl: './confetti.component.css',
+    selector: 'app-confetti',
+    templateUrl: './confetti.component.html',
+    styleUrl: './confetti.component.css',
+    standalone: false
 })
 export class ConfettiComponent {
   constructor(private confettiService: ConfettiService) {}

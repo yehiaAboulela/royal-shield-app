@@ -1,25 +1,50 @@
+import { ActivatedSearchPipe } from './../../shared/pipes/activated-search.pipe';
 import { ActivatedWarrantys } from './../../shared/interfaces/activated-warrantys';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { SerialService } from '../../shared/services/serials.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { TableUtil } from '../../tableUtil';
 
 @Component({
   selector: 'app-activated-warrantys',
   templateUrl: './activated-warrantys.component.html',
-  styleUrl: './activated-warrantys.component.css',
+  styleUrls: ['./activated-warrantys.component.css'],
+  standalone: false,
 })
-export class ActivatedWarrantysComponent implements OnInit {
-  constructor(private SerialService: SerialService) {}
+export class ActivatedWarrantysComponent implements OnInit, AfterViewInit {
   searchTerm: string = '';
-
-  ActivatedWarrantys: ActivatedWarrantys[] = [];
   fullScreenImg: string = '';
+  displayedColumns: string[] = [
+    'name',
+    'phoneNumber',
+    'serialNumber',
+    'address',
+    'birthdate',
+    'createdAt',
+    'brand',
+    'model',
+    'color',
+    'image',
+    'action',
+  ];
+
+  activatedWarrantys: ActivatedWarrantys[] = [];
+  dataSource = new MatTableDataSource<ActivatedWarrantys>(
+    this.activatedWarrantys
+  );
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private SerialService: SerialService) {}
 
   ngOnInit(): void {
     this.SerialService.getActivatedWarrantys().subscribe({
       next: (res) => {
         console.log(res);
-        this.ActivatedWarrantys = res.warrantys;
+        this.dataSource.data = res.warrantys;
       },
       error: (err) => {
         console.log(err.error);
@@ -27,10 +52,15 @@ export class ActivatedWarrantysComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   deleteSerial(serial: string) {
     this.SerialService.deleteActivation(serial).subscribe({
       next: (res) => {
-        this.ActivatedWarrantys = res.remainingActivations;
+        this.dataSource.data = res.remainingActivations;
       },
     });
   }

@@ -8,51 +8,91 @@
         Export Table
       </button>
     </div>
-    <table
-      class="table table-striped table-bordered table-hover mt-2"
-      id="requests"
-    >
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Message</th>
-          <th scope="col">Company</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (offer of offers; track $index) {
-        <tr [ngClass]="{ checked: offer.checked }">
-          <td>{{ offer.name }}</td>
-          <td>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort id="requests">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let offer">
+            {{ offer.name }}
+          </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let offer">
             <a [href]="mailTo + offer.email">{{ offer.email }}</a>
           </td>
-          <td>{{ offer.phone }}</td>
-          <td class="msg-body">
+        </ng-container>
+
+        <!-- Phone Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+          <td mat-cell *matCellDef="let offer">{{ offer.phone }}</td>
+        </ng-container>
+
+        <!-- Message Column -->
+        <ng-container matColumnDef="msg">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Message</th>
+          <td mat-cell *matCellDef="let offer" class="msg-body">
             <p>{{ offer.msg }}</p>
           </td>
-          <td>{{ offer.company }}</td>
-          <td style="min-width: 10px">
-            @if (!offer.checked) {
-            <button class="btn btn-primary" (click)="checkOffer(offer.Id)">
-              <i class="fa fa-check"></i>
-            </button>
-            } @if (offer.checked) {
-            <button class="btn btn-success" (click)="uncheckOffer(offer.Id)">
-              <i class="fa fa-xmark"></i>
-            </button>
-            }
+        </ng-container>
 
-            <button class="btn btn-dark" (click)="deleteOffer(offer._id)">
-              <i class="fa fa-trash"></i>
+        <!-- Company Column -->
+        <ng-container matColumnDef="company">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+          <td mat-cell *matCellDef="let offer">{{ offer.company }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let offer" style="min-width: 10px">
+            <button
+              *ngIf="!offer.checked"
+              mat-icon-button
+              (click)="checkOffer(offer.Id)"
+              title="Check"
+            >
+              <mat-icon>check</mat-icon>
+            </button>
+            <button
+              *ngIf="offer.checked"
+              mat-icon-button
+              (click)="uncheckOffer(offer.Id)"
+              title="Uncheck"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              (click)="deleteOffer(offer._id)"
+              title="Delete"
+            >
+              <mat-icon>delete</mat-icon>
             </button>
           </td>
-        </tr>
-        }
-      </tbody>
-    </table>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [ngClass]="{
+            'checked-row': row.checked
+          }"
+        ></tr>
+      </table>
+
+      <!-- Paginator -->
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page"
+      ></mat-paginator>
+    </div>
   </div>
 </section>
 

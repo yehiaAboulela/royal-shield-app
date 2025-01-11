@@ -23,11 +23,7 @@ import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {
-  CommonModule,
-  HashLocationStrategy,
-  LocationStrategy,
-} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { WarrantyCheckComponent } from './components/warranty-check/warranty-check.component';
 import { ActivationComponent } from './components/activation/activation.component';
@@ -49,6 +45,14 @@ import { ResellerPipe } from './shared/pipes/reseller.pipe';
 import { ApplicationsComponent } from './components/applications/applications.component';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+// angular mat
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,6 @@ import { BlogsComponent } from './components/blogs/blogs.component';
     WarrantyComponent,
     UserLayoutComponent,
     AdminLayoutComponent,
-    SerialsComponent,
     AdminNavComponent,
     WarrantyCheckComponent,
     ActivationComponent,
@@ -87,6 +90,7 @@ import { BlogsComponent } from './components/blogs/blogs.component';
     ApplicationsComponent,
     AppointmentsComponent,
     BlogsComponent,
+    SerialsComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,8 +102,13 @@ import { BlogsComponent } from './components/blogs/blogs.component';
     ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(), // ToastrModule added
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
+    MatButtonModule,
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), provideAnimationsAsync()],
 
   bootstrap: [AppComponent],
 })
