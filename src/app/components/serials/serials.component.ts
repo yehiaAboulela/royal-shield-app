@@ -18,6 +18,7 @@ export class SerialsComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
     'serialNumber',
     'numOfChecks',
+    'branch',
     'activated',
     'action',
   ];
@@ -26,16 +27,17 @@ export class SerialsComponent implements OnInit, AfterViewInit {
 
   // Form for serials
   serialForm: FormGroup;
+  paginatorNumbers: number[] = [10, 30];
 
   // Pagination related properties
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort; // Add this line
+
   constructor(
     private SerialService: SerialService,
     private FormBuilder: FormBuilder,
     private toastr: ToastrService
   ) {
-    // Initializing the serialForm
     this.serialForm = this.FormBuilder.group({
       serialNumber: [
         '',
@@ -44,8 +46,13 @@ export class SerialsComponent implements OnInit, AfterViewInit {
           Validators.pattern('^[A-Za-z]{3}-[A-Za-z0-9]{6}$'),
         ],
       ],
+      branch: ['', [Validators.required]],
     });
   }
+
+  branchUpdateForm: FormGroup = this.FormBuilder.group({
+    branch: ['', [Validators.required]],
+  });
 
   ngOnInit(): void {
     // Fetch serials on component load
@@ -53,12 +60,14 @@ export class SerialsComponent implements OnInit, AfterViewInit {
       next: (res) => {
         // Setting the fetched serials in the data source
         this.dataSource.data = res.serials;
+        if (res.serials.length > 30) {
+          this.paginatorNumbers = [10, 30, res.serials.length];
+        }
       },
     });
   }
 
   ngAfterViewInit(): void {
-    // Assign paginator to dataSource after the view is initialized
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -94,5 +103,16 @@ export class SerialsComponent implements OnInit, AfterViewInit {
   // Export data to Excel (method from TableUtil)
   exportData(): void {
     TableUtil.exportTableToExcel('serials', 'serials');
+  }
+
+  UpdateBranch(serial: string) {
+    this.branchUpdateForm.value.serialNumber = serial;
+    this.SerialService.updateBranch(this.branchUpdateForm.value).subscribe({
+      next: (res) => {
+        this.toastr.success('Success', 'branch successfully Updated');
+        this.dataSource.data = res.serials;
+        this.branchUpdateForm.reset();
+      },
+    });
   }
 }

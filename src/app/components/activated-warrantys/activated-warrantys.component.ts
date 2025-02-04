@@ -34,6 +34,7 @@ export class ActivatedWarrantysComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<ActivatedWarrantys>(
     this.activatedWarrantys
   );
+  paginatorNumbers: number[] = [5, 10];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -43,8 +44,10 @@ export class ActivatedWarrantysComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.SerialService.getActivatedWarrantys().subscribe({
       next: (res) => {
-        console.log(res);
         this.dataSource.data = res.warrantys;
+        if (res.warrantys.length > 10) {
+          this.paginatorNumbers = [5, 10, res.warrantys.length];
+        }
       },
       error: (err) => {
         console.log(err.error);

@@ -3,10 +3,10 @@ import { BlogService } from '../../shared/services/blog.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'app-blogs',
-    templateUrl: './blogs.component.html',
-    styleUrls: ['./blogs.component.css'],
-    standalone: false
+  selector: 'app-blogs',
+  templateUrl: './blogs.component.html',
+  styleUrls: ['./blogs.component.css'],
+  standalone: false,
 })
 export class BlogsComponent implements OnInit {
   constructor(private blogService: BlogService, private fb: FormBuilder) {}
@@ -73,6 +73,3 @@ export class BlogsComponent implements OnInit {
     }
   }
 }
-/* 
-
-*/

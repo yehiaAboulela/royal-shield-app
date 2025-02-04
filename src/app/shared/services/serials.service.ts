@@ -21,8 +21,14 @@ export class SerialService {
     return this.http.get(`${this.serverUrl}/viewSerials`, { headers });
   }
 
-  addSerial(serial: any): Observable<any> {
+  addSerial(serial: { serialNumber: string; branch: string }): Observable<any> {
     return this.http.post(`${this.serverUrl}/addSerial`, serial);
+  }
+  updateBranch(serial: {
+    serialNumber: string;
+    branch: string;
+  }): Observable<any> {
+    return this.http.post(`${this.serverUrl}/updateBranch`, serial);
   }
   deleteSerial(serial: string): Observable<any> {
     return this.http.post(`${this.serverUrl}/deleteSerial`, {

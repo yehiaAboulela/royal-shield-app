@@ -30,6 +30,7 @@ export class RequestsComponent implements OnInit, AfterViewInit {
 
   // Data source for mat-table
   dataSource = new MatTableDataSource<Offer>(this.offers);
+  paginatorNumbers: number[] = [5, 10];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -43,6 +44,10 @@ export class RequestsComponent implements OnInit, AfterViewInit {
     this.OffersService.getAllOffers().subscribe({
       next: (res) => {
         this.dataSource.data = res.offers.reverse();
+        // this.paginatorNumbers = [5, 10, res.offers.length];
+        if (res.offers.length > 10) {
+          this.paginatorNumbers = [5, 10, res.offers.length];
+        }
       },
     });
   }

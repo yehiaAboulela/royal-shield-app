@@ -1,3 +1,10 @@
 td {
   vertical-align: middle;
 }
+.my-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+.input-parent {
+  width: 49%;
+}

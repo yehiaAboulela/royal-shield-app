@@ -9,13 +9,13 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { HttpClient } from '@angular/common/http';
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
-    selector: 'app-warranty',
-    templateUrl: './warranty.component.html',
-    styleUrl: './warranty.component.css',
-    standalone: false
+  selector: 'app-warranty',
+  templateUrl: './warranty.component.html',
+  styleUrl: './warranty.component.css',
+  standalone: false,
 })
 export class WarrantyComponent implements OnDestroy, OnInit {
   constructor(
@@ -143,7 +143,7 @@ export class WarrantyComponent implements OnDestroy, OnInit {
             this.success = true;
             this.confettiService.launchConfetti();
             this.activation = res.activation;
-            // this.generatePdf();
+            this.generatePdf();
           }
         },
         error: (err) => {
