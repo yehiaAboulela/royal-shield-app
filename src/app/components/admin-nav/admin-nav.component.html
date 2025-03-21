@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container">
     <button
       class="navbar-toggler d-lg-none"
@@ -30,4 +30,49 @@
       </ul>
     </div>
   </div>
+</nav> -->
+
+<nav class="side-nav">
+  <ul class="list-unstyled">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="serials" routerLinkActive="active">
+        @if (isNavOpen) { Serials } @else {
+        <div class="nav-icon" title="Serials">
+          <i class="fa-solid fa-book text-secondary"></i>
+        </div>
+        }
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="requests" routerLinkActive="active">
+        @if (isNavOpen) { Requests } @else {
+        <div class="nav-icon" title="Requests">
+          <i class="fa-solid fa-comment-dots text-secondary"></i>
+        </div>
+        }
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLink="activated-warrantys"
+        routerLinkActive="active"
+      >
+        @if (isNavOpen) { Activated-warrantys } @else {
+        <div class="nav-icon" title="Activated warrantys ">
+          <i class="fa-solid fa-file-lines text-secondary"></i>
+        </div>
+        }
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="royal-nano" routerLinkActive="active">
+        @if (isNavOpen) { Royal-Nano } @else {
+        <div class="nav-icon" title="Royal Nano">
+          <i class="fa-solid fa-r text-secondary"></i>
+        </div>
+        }</a
+      >
+    </li>
+  </ul>
 </nav>

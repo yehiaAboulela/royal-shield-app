@@ -1,2 +1,11 @@
-<app-admin-nav></app-admin-nav>
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <div class="side-nav" [ngClass]="{ close: !isNavOpen }">
+    <button class="toggle btn" (click)="toggleSidebar()">
+      <i class="fa-solid fa-sliders"></i>
+    </button>
+    <app-admin-nav></app-admin-nav>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
